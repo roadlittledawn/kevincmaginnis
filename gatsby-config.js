@@ -26,7 +26,7 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
-        path: "./src/images/",
+        path: `${__dirname}/src/images/`,
       },
       __key: "images",
     },
@@ -34,7 +34,7 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "artworkImages",
-        path: "./src/artwork-images/",
+        path: `${__dirname}/src/artwork-images/`,
       },
       __key: "artwork-images",
     },
@@ -42,7 +42,7 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "artworkSlides",
-        path: "./src/artwork-slides/",
+        path: `${__dirname}/src/artwork-slides/`,
       },
       __key: "artwork-slides",
     },
@@ -50,7 +50,7 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "pages",
-        path: "./src/pages/",
+        path: `${__dirname}/src/pages/`,
       },
       __key: "pages",
     },
