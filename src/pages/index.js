@@ -4,11 +4,8 @@ import Img from "gatsby-image";
 
 const HomePage = ({ data }) => {
   const {
-    allMarkdownRemark: { nodes: slides },
+    allArtworkSlide: { nodes: slides },
   } = data;
-  // const {
-  //   allArtworkSlide: { nodes: slides },
-  // } = data;
 
   return (
     <>
@@ -25,10 +22,7 @@ const HomePage = ({ data }) => {
       <div>Artwork slides here</div>
 
       {slides.map((slide) => {
-        const {
-          frontmatter: { title, year, artForm, caption, image },
-        } = slide;
-        // const { title, year, artForm, caption, image } = slide;
+        const { title, year, artForm, caption, imageFile } = slide;
         return (
           <>
             <ul>
@@ -36,7 +30,9 @@ const HomePage = ({ data }) => {
               <li>{year}</li>
               <li>{artForm}</li>
               <li>{caption}</li>
-              <li>{image && <Img fluid={image.childImageSharp.fluid} />}</li>
+              <li>
+                {imageFile && <Img fluid={imageFile.childImageSharp.fluid} />}
+              </li>
             </ul>
           </>
         );
@@ -47,43 +43,21 @@ const HomePage = ({ data }) => {
 
 export default HomePage;
 
-// export const query = graphql`
-//   query SlideQuery {
-//     allArtworkSlide {
-//       nodes {
-//         artForm
-//         caption
-//         image {
-//           childImageSharp {
-//             fluid(maxWidth: 800) {
-//               ...GatsbyImageSharpFluid
-//             }
-//           }
-//         }
-//         title
-//         year
-//       }
-//     }
-//   }
-// `;
-
 export const query = graphql`
   query SlideQuery {
-    allMarkdownRemark {
+    allArtworkSlide {
       nodes {
-        frontmatter {
-          artForm
-          caption
-          image {
-            childImageSharp {
-              fluid(maxWidth: 800) {
-                ...GatsbyImageSharpFluid
-              }
+        artForm
+        caption
+        imageFile {
+          childImageSharp {
+            fluid(maxWidth: 800) {
+              ...GatsbyImageSharpFluid
             }
           }
-          title
-          year
         }
+        title
+        year
       }
     }
   }

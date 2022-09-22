@@ -53,9 +53,33 @@ exports.createSchemaCustomization = ({ actions }) => {
       year: Int!
       artForm: String
       caption: String
-    
+      imageFile: File
     }`,
   ];
 
   createTypes(typeDefs);
+};
+
+exports.createResolvers = ({ createResolvers }) => {
+  createResolvers({
+    ArtworkSlide: {
+      imageFile: {
+        resolve: async (source, __args, context) => {
+          const { nodeModel } = context;
+          const filePathRegEx = `/\/artwork-images/${source.image}/`;
+          const imageFileNode = await nodeModel.findOne({
+            type: "File",
+            query: {
+              filter: {
+                absolutePath: {
+                  regex: filePathRegEx,
+                },
+              },
+            },
+          });
+          return imageFileNode;
+        },
+      },
+    },
+  });
 };
