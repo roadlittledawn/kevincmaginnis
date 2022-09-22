@@ -48,18 +48,12 @@ exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
 
   const typeDefs = [
-    `type MarkdownRemark implements Node {
-      frontmatter: Frontmatter
-    }`,
-    `type Frontmatter @infer {
-      image: File @fileByRelativePath
-    }`,
     `type ArtworkSlide implements Node {
       title: String!
       year: Int!
       artForm: String
       caption: String
-      image: File @fileByRelativePath
+    
     }`,
   ];
 

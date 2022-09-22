@@ -3,12 +3,12 @@ import { graphql } from "gatsby";
 import Img from "gatsby-image";
 
 const HomePage = ({ data }) => {
-  // const {
-  //   allMarkdownRemark: { nodes: slides },
-  // } = data;
   const {
-    allArtworkSlide: { nodes: slides },
+    allMarkdownRemark: { nodes: slides },
   } = data;
+  // const {
+  //   allArtworkSlide: { nodes: slides },
+  // } = data;
 
   return (
     <>
@@ -25,10 +25,10 @@ const HomePage = ({ data }) => {
       <div>Artwork slides here</div>
 
       {slides.map((slide) => {
-        // const {
-        //   frontmatter: { title, year, artForm, caption, image },
-        // } = slide;
-        const { title, year, artForm, caption, image } = slide;
+        const {
+          frontmatter: { title, year, artForm, caption, image },
+        } = slide;
+        // const { title, year, artForm, caption, image } = slide;
         return (
           <>
             <ul>
@@ -47,44 +47,44 @@ const HomePage = ({ data }) => {
 
 export default HomePage;
 
-export const query = graphql`
-  query SlideQuery {
-    allArtworkSlide {
-      nodes {
-        artForm
-        caption
-        image {
-          childImageSharp {
-            fluid(maxWidth: 800) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        title
-        year
-      }
-    }
-  }
-`;
-
 // export const query = graphql`
 //   query SlideQuery {
-//     allMarkdownRemark {
+//     allArtworkSlide {
 //       nodes {
-//         frontmatter {
-//           artForm
-//           caption
-//           image {
-//             childImageSharp {
-//               fluid(maxWidth: 800) {
-//                 ...GatsbyImageSharpFluid
-//               }
+//         artForm
+//         caption
+//         image {
+//           childImageSharp {
+//             fluid(maxWidth: 800) {
+//               ...GatsbyImageSharpFluid
 //             }
 //           }
-//           title
-//           year
 //         }
+//         title
+//         year
 //       }
 //     }
 //   }
 // `;
+
+export const query = graphql`
+  query SlideQuery {
+    allMarkdownRemark {
+      nodes {
+        frontmatter {
+          artForm
+          caption
+          image {
+            childImageSharp {
+              fluid(maxWidth: 800) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          title
+          year
+        }
+      }
+    }
+  }
+`;
