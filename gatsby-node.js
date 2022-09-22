@@ -67,7 +67,7 @@ exports.createResolvers = ({ createResolvers }) => {
         resolve: async (source, __args, context) => {
           const { nodeModel } = context;
           // const filePathRegEx = `/\/artwork-images\/${source.image}/`;
-          const filePathRegEx = `/\/${source.image}/`;
+          const filePathRegEx = `/${source.image}/`;
           const imageFileNode = await nodeModel.findOne({
             type: "File",
             query: {
