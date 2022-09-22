@@ -75,6 +75,9 @@ exports.createResolvers = ({ createResolvers }) => {
                 base: {
                   eq: source.image,
                 },
+                sourceInstanceName: {
+                  eq: "artworkImages",
+                },
               },
             },
           });
