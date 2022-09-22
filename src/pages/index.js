@@ -1,5 +1,8 @@
-import * as React from "react";
+/** @jsx jsx */
+import { jsx } from "@emotion/react";
+import React from "react";
 import { graphql } from "gatsby";
+import { css } from "@emotion/react";
 import Img from "gatsby-image";
 
 const HomePage = ({ data }) => {
@@ -19,24 +22,29 @@ const HomePage = ({ data }) => {
         <li>Contact</li>
         <li>CV</li>
       </ul>
-      <div>Artwork slides here</div>
-
-      {slides.map((slide) => {
-        const { title, year, artForm, caption, imageFile } = slide;
-        return (
-          <>
-            <ul>
-              <li>{title}</li>
-              <li>{year}</li>
-              <li>{artForm}</li>
-              <li>{caption}</li>
-              <li>
-                {imageFile && <Img fluid={imageFile.childImageSharp.fluid} />}
-              </li>
-            </ul>
-          </>
-        );
-      })}
+      <hr />
+      <div
+        css={css`
+          width: 500px;
+        `}
+      >
+        {slides.map((slide) => {
+          const { title, year, artForm, caption, imageFile } = slide;
+          return (
+            <>
+              <ul>
+                <li>{title}</li>
+                <li>{year}</li>
+                <li>{artForm}</li>
+                <li>{caption}</li>
+                <li>
+                  {imageFile && <Img fluid={imageFile.childImageSharp.fluid} />}
+                </li>
+              </ul>
+            </>
+          );
+        })}
+      </div>
     </>
   );
 };
