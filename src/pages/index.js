@@ -3,9 +3,13 @@ import { graphql } from "gatsby";
 import Img from "gatsby-image";
 
 const HomePage = ({ data }) => {
+  // const {
+  //   allMarkdownRemark: { nodes: slides },
+  // } = data;
   const {
     allArtworkSlide: { nodes: slides },
   } = data;
+
   return (
     <>
       <head>
@@ -20,20 +24,23 @@ const HomePage = ({ data }) => {
       </ul>
       <div>Artwork slides here</div>
 
-      {slides.map((slide) => (
-        <>
-          <ul>
-            <li>{slide.title}</li>
-            <li>{slide.year}</li>
-            <li>{slide.artForm}</li>
-            <li>{slide.caption}</li>
-            <li>
-              image here
-              {/* <Img fluid={slide.imageFileName.childImageSharp.fluid} /> */}
-            </li>
-          </ul>
-        </>
-      ))}
+      {slides.map((slide) => {
+        // const {
+        //   frontmatter: { title, year, artForm, caption, image },
+        // } = slide;
+        const { title, year, artForm, caption, image } = slide;
+        return (
+          <>
+            <ul>
+              <li>{title}</li>
+              <li>{year}</li>
+              <li>{artForm}</li>
+              <li>{caption}</li>
+              <li>{image && <Img fluid={image.childImageSharp.fluid} />}</li>
+            </ul>
+          </>
+        );
+      })}
     </>
   );
 };
@@ -46,17 +53,38 @@ export const query = graphql`
       nodes {
         artForm
         caption
-        # imageFileName {
-        #   childImageSharp {
-        #     fluid(maxWidth: 800) {
-        #       ...GatsbyImageSharpFluid
-        #     }
-        #   }
-        # }
-        id
+        image {
+          childImageSharp {
+            fluid(maxWidth: 800) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
         title
         year
       }
     }
   }
 `;
+
+// export const query = graphql`
+//   query SlideQuery {
+//     allMarkdownRemark {
+//       nodes {
+//         frontmatter {
+//           artForm
+//           caption
+//           image {
+//             childImageSharp {
+//               fluid(maxWidth: 800) {
+//                 ...GatsbyImageSharpFluid
+//               }
+//             }
+//           }
+//           title
+//           year
+//         }
+//       }
+//     }
+//   }
+// `;

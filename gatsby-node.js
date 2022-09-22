@@ -24,7 +24,7 @@ exports.sourceNodes = ({
         title: frontmatter.title,
         year: frontmatter.year,
         artForm: frontmatter.artForm || null,
-        imageFileName: frontmatter.imageFileName,
+        image: frontmatter.image,
         caption: frontmatter.caption || null,
       };
       const filename = fileAbsolutePath.substring(
@@ -47,14 +47,21 @@ exports.sourceNodes = ({
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
 
-  createTypes(`
-    type ArtworkSlide implements Node {
+  const typeDefs = [
+    `type MarkdownRemark implements Node {
+      frontmatter: Frontmatter
+    }`,
+    `type Frontmatter @infer {
+      image: File @fileByRelativePath
+    }`,
+    `type ArtworkSlide implements Node {
       title: String!
       year: Int!
       artForm: String
-      imageFileName: String!
       caption: String
-    }
+      image: File @fileByRelativePath
+    }`,
+  ];
 
-  `);
+  createTypes(typeDefs);
 };

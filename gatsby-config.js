@@ -4,13 +4,16 @@ module.exports = {
     siteUrl: `https://www.kevincmaginnis.com`,
   },
   plugins: [
+    "gatsby-transformer-remark",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-image",
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
         trackingId: "UA-56606559-1",
       },
     },
-    "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     {
@@ -19,9 +22,6 @@ module.exports = {
         icon: "src/images/icon.png",
       },
     },
-    "gatsby-transformer-remark",
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
     {
       resolve: "gatsby-source-filesystem",
       options: {
