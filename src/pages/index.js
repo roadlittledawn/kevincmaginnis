@@ -7,10 +7,6 @@ import Img from "gatsby-image";
 
 const HomePage = ({ data }) => {
   const {
-    allFile: { nodes: fileNodes },
-  } = data;
-  console.log({ fileNodes });
-  const {
     allArtworkSlide: { nodes: slides },
   } = data;
 
@@ -70,26 +66,6 @@ export const query = graphql`
         }
         title
         year
-      }
-    }
-    allFile(filter: { sourceInstanceName: { eq: "artworkImages" } }) {
-      nodes {
-        absolutePath
-        relativePath
-        base
-        dir
-        relativeDirectory
-        childImageSharp {
-          fluid(maxWidth: 800) {
-            base64
-            tracedSVG
-            srcWebp
-            srcSetWebp
-            originalImg
-            originalName
-          }
-        }
-        sourceInstanceName
       }
     }
   }
