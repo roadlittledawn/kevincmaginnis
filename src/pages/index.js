@@ -1,16 +1,22 @@
 /** @jsx jsx */
 import { jsx } from "@emotion/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { graphql } from "gatsby";
 import { css } from "@emotion/react";
-import Img from "gatsby-image";
 import { Fade } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
+
+const MOBILE_BREAKPOINT = `550px`;
 
 const HomePage = ({ data }) => {
   const {
     allArtworkSlide: { nodes: slides },
   } = data;
+
+  const [slideCaptions, setSlideCaptions] = useState(
+    slides.map(({ caption }) => caption)
+  );
+  const [activeSlide, setActiveSlide] = useState(0);
 
   return (
     <>
@@ -28,7 +34,8 @@ const HomePage = ({ data }) => {
         <div
           css={css`
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
           `}
         >
           <div>
@@ -52,16 +59,19 @@ const HomePage = ({ data }) => {
               max-width: 500px;
             `}
           >
-            <Fade autoplay={false}>
+            <Fade autoplay={false} onChange={(from, to) => setActiveSlide(to)}>
               {slides.map((slide) => {
-                const { title, year, caption, imageFile } = slide;
+                const { imageFile } = slide;
                 return (
                   <>
                     <div
                       css={css`
                         display: block;
                         width: 100%;
-                        /* height: 400px; */
+                        height: 400px;
+                        @media screen and (max-width: ${MOBILE_BREAKPOINT}) {
+                          height: auto;
+                        }
                       `}
                     >
                       <div
@@ -79,13 +89,11 @@ const HomePage = ({ data }) => {
                         />
                       </div>
                     </div>
-                    <p>
-                      {title}, {year}, {caption}
-                    </p>
                   </>
                 );
               })}
             </Fade>
+            <p>{slideCaptions[activeSlide]}</p>
           </div>
         </div>
       </main>
