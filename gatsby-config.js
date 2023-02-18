@@ -22,6 +22,15 @@ module.exports = {
         icon: "src/images/icon.png",
       },
     },
+    `gatsby-transformer-yaml`,
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "artworkSlides",
+        path: `${__dirname}/src/artwork-slides/`,
+      },
+      __key: "artwork-slides-yaml",
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -37,14 +46,6 @@ module.exports = {
         path: `${__dirname}/src/artwork-images/`,
       },
       __key: "artwork-images",
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "artworkSlides",
-        path: `${__dirname}/src/artwork-slides/`,
-      },
-      __key: "artwork-slides",
     },
     {
       resolve: "gatsby-source-filesystem",

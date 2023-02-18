@@ -9,39 +9,29 @@ exports.sourceNodes = ({
 }) => {
   const { createNode } = actions;
 
-  const slides = getNodesByType("MarkdownRemark");
+  const slides = getNodesByType("SlidesYaml");
 
-  slides
-    .filter((slideNode) =>
-      // Ensure this works in other file dirs like on netlify
-      slideNode.fileAbsolutePath.startsWith(
-        path.join(`${process.cwd()}/${ARTWORK_SLIDES_PATH_PREFIX}`)
-      )
-    )
-    .forEach((slideNode, index) => {
-      const { frontmatter, fileAbsolutePath } = slideNode;
-      const data = {
-        title: frontmatter.title,
-        year: frontmatter.year,
-        artForm: frontmatter.artForm || null,
-        image: frontmatter.image,
-        caption: frontmatter.caption || null,
-      };
-      const filename = fileAbsolutePath.substring(
-        fileAbsolutePath.lastIndexOf("/") + 1
-      );
+  slides.forEach((slideNode, index) => {
+    const { title, year, artForm, slideCaption, slideMedia } = slideNode;
+    const data = {
+      title,
+      year,
+      artForm: artForm || null,
+      mediaFileName: slideMedia.fileName,
+      caption: slideCaption || null,
+    };
 
-      createNode({
-        id: createNodeId(`slide-${index}-${filename}`),
-        parent: null,
-        children: [],
-        internal: {
-          type: "ArtworkSlide",
-          contentDigest: createContentDigest(data),
-        },
-        ...data,
-      });
+    createNode({
+      id: createNodeId(`slide-${index}-${title}`),
+      parent: null,
+      children: [],
+      internal: {
+        type: "ArtworkSlide",
+        contentDigest: createContentDigest(data),
+      },
+      ...data,
     });
+  });
 };
 
 exports.createSchemaCustomization = ({ actions }) => {
@@ -53,6 +43,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       year: Int!
       artForm: String
       caption: String
+      mediaFileName: String
       imageFile: File
     }`,
   ];
@@ -71,7 +62,7 @@ exports.createResolvers = ({ createResolvers }) => {
             query: {
               filter: {
                 base: {
-                  eq: source.image,
+                  eq: source.mediaFileName,
                 },
                 sourceInstanceName: {
                   eq: "artworkImages",
