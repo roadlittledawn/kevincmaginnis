@@ -50,14 +50,6 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "artworkSlidesMd",
-        path: `${__dirname}/src/md-slides/`,
-      },
-      __key: "artwork-slides-md",
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
         name: "pages",
         path: `${__dirname}/src/pages/`,
       },
