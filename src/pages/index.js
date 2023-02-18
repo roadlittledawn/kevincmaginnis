@@ -4,6 +4,8 @@ import React from "react";
 import { graphql } from "gatsby";
 import { css } from "@emotion/react";
 import Img from "gatsby-image";
+import { Fade } from "react-slideshow-image";
+import "react-slideshow-image/dist/styles.css";
 
 const HomePage = ({ data }) => {
   const {
@@ -28,22 +30,21 @@ const HomePage = ({ data }) => {
           width: 500px;
         `}
       >
-        {slides.map((slide) => {
-          const { title, year, artForm, caption, imageFile } = slide;
-          return (
-            <>
-              <ul>
-                <li>{title}</li>
-                <li>{year}</li>
-                <li>{artForm}</li>
-                <li>{caption}</li>
-                <li>
-                  {imageFile && <Img fluid={imageFile.childImageSharp.fluid} />}
-                </li>
-              </ul>
-            </>
-          );
-        })}
+        <Fade autoplay={false}>
+          {slides.map((slide) => {
+            const { title, year, caption, imageFile } = slide;
+            return (
+              <div className="each-slide">
+                <div>
+                  <img src={imageFile.childImageSharp.fluid.src} />
+                </div>
+                <p>
+                  {title}, {year}, {caption}
+                </p>
+              </div>
+            );
+          })}
+        </Fade>
       </div>
     </>
   );
@@ -60,6 +61,7 @@ export const query = graphql`
         imageFile {
           childImageSharp {
             fluid(maxWidth: 800) {
+              src
               ...GatsbyImageSharpFluid
             }
           }
