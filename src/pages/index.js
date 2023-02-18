@@ -18,34 +18,77 @@ const HomePage = ({ data }) => {
         <title>Kevin C Maginnis | Home</title>
       </head>
       <h1>Kevin C Maginnis</h1>
-      <ul>
-        <li>Artwork</li>
-        <li>Bio</li>
-        <li>Contact</li>
-        <li>CV</li>
-      </ul>
       <hr />
-      <div
+      <main
         css={css`
-          width: 500px;
+          margin: 0 auto;
+          max-width: 900px;
         `}
       >
-        <Fade autoplay={false}>
-          {slides.map((slide) => {
-            const { title, year, caption, imageFile } = slide;
-            return (
-              <div className="each-slide">
-                <div>
-                  <img src={imageFile.childImageSharp.fluid.src} />
-                </div>
-                <p>
-                  {title}, {year}, {caption}
-                </p>
-              </div>
-            );
-          })}
-        </Fade>
-      </div>
+        <div
+          css={css`
+            display: flex;
+            justify-content: center;
+          `}
+        >
+          <div>
+            <nav>
+              <ul
+                css={css`
+                  list-style-type: none;
+                  padding-left: 0;
+                `}
+              >
+                <li>Artwork</li>
+                <li>Bio</li>
+                <li>Contact</li>
+                <li>CV</li>
+              </ul>
+            </nav>
+          </div>
+          <div
+            css={css`
+              width: 100%;
+              max-width: 500px;
+            `}
+          >
+            <Fade autoplay={false}>
+              {slides.map((slide) => {
+                const { title, year, caption, imageFile } = slide;
+                return (
+                  <>
+                    <div
+                      css={css`
+                        display: block;
+                        width: 100%;
+                        /* height: 400px; */
+                      `}
+                    >
+                      <div
+                        css={css`
+                          width: 100%;
+                        `}
+                      >
+                        <img
+                          css={css`
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                          `}
+                          src={imageFile.childImageSharp.fluid.src}
+                        />
+                      </div>
+                    </div>
+                    <p>
+                      {title}, {year}, {caption}
+                    </p>
+                  </>
+                );
+              })}
+            </Fade>
+          </div>
+        </div>
+      </main>
     </>
   );
 };
