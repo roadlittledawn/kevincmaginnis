@@ -1,3 +1,38 @@
+- title: 23-4-F
+  year: 2023
+  artForm: painting
+  slideMedia:
+    type: image
+    fileName: swirls.jpeg
+  slideCaption: '23-4-F, acrylic on linen, 54" x 48" x 1.25" (137.16 x 121.92 x 3.81 cm)'
+- title: 23-1-E
+  year: 2023
+  artForm: painting
+  slideMedia:
+    type: image
+    fileName: arch.jpeg
+  slideCaption: '23-1-E, acrylic on linen, 30" x 36" x 1.25" (76.2 x 91.44 x 3.81 cm)'
+- title: 23-1-D
+  year: 2023
+  artForm: painting
+  slideMedia:
+    type: image
+    fileName: snake.jpeg
+  slideCaption: '23-1-D, acrylic on linen, 30" x 28" x 1.25" (76.2 x 71.12 x 3.81 cm)'
+- title: 22-5-C
+  year: 2022
+  artForm: painting
+  slideMedia:
+    type: image
+    fileName: skylight.jpeg
+  slideCaption: '22-5-C, acrylic on linen, 30" x 28" x 1.25" (76.2 x 71.12 x 3.81 cm)'
+- title: 22-3-B
+  year: 2023
+  artForm: painting
+  slideMedia:
+    type: image
+    fileName: door.jpeg
+  slideCaption: '22-3-B, 2022, acrylic on linen, 30" x 20" x 1.25" (76.2 x 50.8 x 3.81 cm)'
 - title: Orange Loop on Blue Canvas
   year: 2022
   artForm: painting
