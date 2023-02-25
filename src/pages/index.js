@@ -1,10 +1,14 @@
 /** @jsx jsx */
 import { jsx } from "@emotion/react";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, CSSProperties } from "react";
 import { graphql } from "gatsby";
 import { css } from "@emotion/react";
-import { Fade } from "react-slideshow-image";
-import "react-slideshow-image/dist/styles.css";
+import {
+  useTransition,
+  animated,
+  AnimatedProps,
+  useSpringRef,
+} from "@react-spring/web";
 
 const MOBILE_BREAKPOINT = `550px`;
 
@@ -13,10 +17,42 @@ const HomePage = ({ data }) => {
     allArtworkSlide: { nodes: slides },
   } = data;
 
-  const [slideCaptions, setSlideCaptions] = useState(
-    slides.map(({ caption }) => caption)
-  );
-  const [activeSlide, setActiveSlide] = useState(0);
+  const pages = slides.map(({ caption, imageFile }) => ({ style }) => (
+    <animated.div style={{ ...style }}>
+      <div
+        css={css`
+          max-width: 700px;
+        `}
+      >
+        <img
+          css={css`
+            max-width: 100%;
+          `}
+          src={imageFile.childImageSharp.fluid.src}
+        />
+      </div>
+      <p>{caption}</p>
+    </animated.div>
+  ));
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const showNextImage = () =>
+    setCurrentSlide((state) => (state + 1) % slides.length);
+  const showPreviousSlide = () =>
+    setCurrentSlide((state) => (state - 1) % slides.length);
+
+  const transRef = useSpringRef();
+  const transitions = useTransition(currentSlide, {
+    ref: transRef,
+    keys: null,
+    from: { opacity: 0, transition: "opacity .5s linear" },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
+    exitBeforeEnter: true,
+  });
+  useEffect(() => {
+    transRef.start();
+  }, [currentSlide]);
 
   return (
     <>
@@ -59,41 +95,26 @@ const HomePage = ({ data }) => {
               max-width: 500px;
             `}
           >
-            <Fade autoplay={false} onChange={(from, to) => setActiveSlide(to)}>
-              {slides.map((slide) => {
-                const { imageFile } = slide;
-                return (
-                  <>
-                    <div
-                      css={css`
-                        display: block;
-                        width: 100%;
-                        height: 400px;
-                        @media screen and (max-width: ${MOBILE_BREAKPOINT}) {
-                          height: auto;
-                        }
-                      `}
-                    >
-                      <div
-                        css={css`
-                          width: 100%;
-                        `}
-                      >
-                        <img
-                          css={css`
-                            width: 100%;
-                            height: 100%;
-                            object-fit: cover;
-                          `}
-                          src={imageFile.childImageSharp.fluid.src}
-                        />
-                      </div>
-                    </div>
-                  </>
-                );
+            <div
+              css={css`
+                display: flex;
+                flex-wrap: none;
+                justify-content: space-between;
+              `}
+            >
+              {currentSlide !== 0 && (
+                <button onClick={showPreviousSlide}>&lt; Previous</button>
+              )}
+              {currentSlide !== slides.length - 1 && (
+                <button onClick={showNextImage}>Next &gt;</button>
+              )}
+            </div>
+            <div className={`flex fill`} onClick={showNextImage}>
+              {transitions((style, i) => {
+                const Page = pages[i];
+                return <Page style={style} />;
               })}
-            </Fade>
-            <p>{slideCaptions[activeSlide]}</p>
+            </div>
           </div>
         </div>
       </main>
