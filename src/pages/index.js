@@ -35,12 +35,14 @@ const HomePage = ({ data }) => {
     </animated.div>
   ));
 
-  const [index, set] = useState(0);
-  const showNextImage = () => set((state) => (state + 1) % slides.length);
-  const showPreviousSlide = () => set((state) => (state - 1) % slides.length);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const showNextImage = () =>
+    setCurrentSlide((state) => (state + 1) % slides.length);
+  const showPreviousSlide = () =>
+    setCurrentSlide((state) => (state - 1) % slides.length);
 
   const transRef = useSpringRef();
-  const transitions = useTransition(index, {
+  const transitions = useTransition(currentSlide, {
     ref: transRef,
     keys: null,
     from: { opacity: 0, transition: "opacity .5s linear" },
@@ -50,7 +52,7 @@ const HomePage = ({ data }) => {
   });
   useEffect(() => {
     transRef.start();
-  }, [index]);
+  }, [currentSlide]);
 
   return (
     <>
@@ -100,8 +102,12 @@ const HomePage = ({ data }) => {
                 justify-content: space-between;
               `}
             >
-              <button onClick={showPreviousSlide}>&lt; Previous</button>
-              <button onClick={showNextImage}>Next &gt;</button>
+              {currentSlide !== 0 && (
+                <button onClick={showPreviousSlide}>&lt; Previous</button>
+              )}
+              {currentSlide !== slides.length - 1 && (
+                <button onClick={showNextImage}>Next &gt;</button>
+              )}
             </div>
             <div className={`flex fill`} onClick={showNextImage}>
               {transitions((style, i) => {
