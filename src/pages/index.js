@@ -36,13 +36,14 @@ const HomePage = ({ data }) => {
   ));
 
   const [index, set] = useState(0);
-  const onClick = () => set((state) => (state + 1) % slides.length);
+  const showNextImage = () => set((state) => (state + 1) % slides.length);
+  const showPreviousSlide = () => set((state) => (state - 1) % slides.length);
 
   const transRef = useSpringRef();
   const transitions = useTransition(index, {
     ref: transRef,
     keys: null,
-    from: { opacity: 0, transition: "opacity 1s linear" },
+    from: { opacity: 0, transition: "opacity .5s linear" },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
     exitBeforeEnter: true,
@@ -92,7 +93,17 @@ const HomePage = ({ data }) => {
               max-width: 500px;
             `}
           >
-            <div className={`flex fill`} onClick={onClick}>
+            <div
+              css={css`
+                display: flex;
+                flex-wrap: none;
+                justify-content: space-between;
+              `}
+            >
+              <button onClick={showPreviousSlide}>&lt; Previous</button>
+              <button onClick={showNextImage}>Next &gt;</button>
+            </div>
+            <div className={`flex fill`} onClick={showNextImage}>
               {transitions((style, i) => {
                 const Page = pages[i];
                 return <Page style={style} />;
