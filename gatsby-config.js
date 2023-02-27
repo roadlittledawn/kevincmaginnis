@@ -1,7 +1,9 @@
 module.exports = {
+  trailingSlash: "always",
   siteMetadata: {
     title: `Kevin C Maginnis`,
-    siteUrl: `https://www.kevincmaginnis.com`,
+    titleTemplate: "Kevin C Maginnis | %s",
+    siteUrl: `https://aesthetic-bienenstitch-01eb0a.netlify.app`,
   },
   plugins: [
     "gatsby-transformer-remark",
