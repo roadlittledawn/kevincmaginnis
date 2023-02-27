@@ -1,16 +1,8 @@
 /** @jsx jsx */
-import { jsx } from "@emotion/react";
-import React, { useEffect, useState, CSSProperties } from "react";
+import React, { useEffect, useState } from "react";
 import { graphql } from "gatsby";
-import { css } from "@emotion/react";
-import {
-  useTransition,
-  animated,
-  AnimatedProps,
-  useSpringRef,
-} from "@react-spring/web";
-
-const MOBILE_BREAKPOINT = `550px`;
+import { css, jsx } from "@emotion/react";
+import { useTransition, animated, useSpringRef } from "@react-spring/web";
 
 const HomePage = ({ data }) => {
   const {
@@ -25,6 +17,7 @@ const HomePage = ({ data }) => {
         `}
       >
         <img
+          alt={caption}
           css={css`
             max-width: 100%;
           `}
@@ -52,72 +45,37 @@ const HomePage = ({ data }) => {
   });
   useEffect(() => {
     transRef.start();
-  }, [currentSlide]);
+  });
 
   return (
     <>
-      <head>
-        <title>Kevin C Maginnis | Home</title>
-      </head>
-      <h1>Kevin C Maginnis</h1>
-      <hr />
-      <main
+      <div
         css={css`
-          margin: 0 auto;
-          max-width: 900px;
+          width: 100%;
+          max-width: 500px;
         `}
       >
         <div
           css={css`
             display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
+            flex-wrap: none;
+            justify-content: space-between;
           `}
         >
-          <div>
-            <nav>
-              <ul
-                css={css`
-                  list-style-type: none;
-                  padding-left: 0;
-                `}
-              >
-                <li>Artwork</li>
-                <li>Bio</li>
-                <li>Contact</li>
-                <li>CV</li>
-              </ul>
-            </nav>
-          </div>
-          <div
-            css={css`
-              width: 100%;
-              max-width: 500px;
-            `}
-          >
-            <div
-              css={css`
-                display: flex;
-                flex-wrap: none;
-                justify-content: space-between;
-              `}
-            >
-              {currentSlide !== 0 && (
-                <button onClick={showPreviousSlide}>&lt; Previous</button>
-              )}
-              {currentSlide !== slides.length - 1 && (
-                <button onClick={showNextImage}>Next &gt;</button>
-              )}
-            </div>
-            <div className={`flex fill`} onClick={showNextImage}>
-              {transitions((style, i) => {
-                const Page = pages[i];
-                return <Page style={style} />;
-              })}
-            </div>
-          </div>
+          {currentSlide !== 0 && (
+            <button onClick={showPreviousSlide}>&lt; Previous</button>
+          )}
+          {currentSlide !== slides.length - 1 && (
+            <button onClick={showNextImage}>Next &gt;</button>
+          )}
         </div>
-      </main>
+        <div>
+          {transitions((style, i) => {
+            const Page = pages[i];
+            return <Page style={style} />;
+          })}
+        </div>
+      </div>
     </>
   );
 };
