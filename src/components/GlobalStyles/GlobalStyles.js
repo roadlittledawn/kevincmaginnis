@@ -12,6 +12,9 @@ const GlobalStyles = () => (
       :root {
         ${variables};
         ${typography};
+
+        --site-content-padding: 2rem 2rem 0 2rem;
+        --site-max-width: 1260px;
       }
 
       * {
@@ -21,8 +24,8 @@ const GlobalStyles = () => (
       body {
         font-size: 16px;
         font-family: var(--primary-font-family);
-        color: var(--primary-text-color);
-        background-color: var(--primary-background-color);
+        color: #515151;
+        background-color: #fff;
         line-height: 1.5;
       }
 

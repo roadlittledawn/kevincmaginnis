@@ -7,6 +7,7 @@ const Sidebar = () => {
   return (
     <aside
       css={css`
+        padding: var(--site-content-padding);
         grid-area: sidebar;
         @media screen and (max-width: 760px) {
           display: none;

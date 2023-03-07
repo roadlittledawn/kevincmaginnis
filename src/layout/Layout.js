@@ -8,7 +8,12 @@ import Sidebar from "./Sidebar";
 
 const Layout = ({ children }) => {
   return (
-    <>
+    <div
+      css={css`
+        max-width: var(--site-max-width);
+        margin: 0 auto;
+      `}
+    >
       <Header />
       <div
         css={css`
@@ -30,7 +35,7 @@ const Layout = ({ children }) => {
           <Content>{children}</Content>
         </Main>
       </div>
-    </>
+    </div>
   );
 };
 
