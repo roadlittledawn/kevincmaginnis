@@ -6,7 +6,7 @@ import Main from "./Main";
 import Content from "./Content";
 import Sidebar from "./Sidebar";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, location }) => {
   return (
     <div
       css={css`
@@ -30,7 +30,7 @@ const Layout = ({ children }) => {
           }
         `}
       >
-        <Sidebar />
+        <Sidebar location={location} />
         <Main>
           <Content>{children}</Content>
         </Main>

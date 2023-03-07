@@ -2,8 +2,9 @@
 import React from "react";
 import { css, jsx } from "@emotion/react";
 import { Link } from "gatsby";
+import NavMenu from "../components/NavMenu/NavMenu";
 
-const Sidebar = () => {
+const Sidebar = ({ location }) => {
   return (
     <aside
       css={css`
@@ -14,16 +15,7 @@ const Sidebar = () => {
         }
       `}
     >
-      <nav>
-        <li>
-          <Link to="/">Artwork</Link>
-        </li>
-        <li>
-          <Link to="/bio/">Bio</Link>
-        </li>
-        <li>Contact</li>
-        <li>CV</li>
-      </nav>
+      <NavMenu location={location} />
     </aside>
   );
 };
