@@ -1,6 +1,3 @@
-const ARTWORK_SLIDES_PATH_PREFIX = "src/artwork-slides/";
-const path = require("path");
-
 exports.sourceNodes = ({
   actions,
   createNodeId,
