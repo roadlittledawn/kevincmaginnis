@@ -6,10 +6,10 @@ import { useTransition, animated, useSpringRef } from "@react-spring/web";
 
 const HomePage = ({ data }) => {
   const {
-    allArtworkSlide: { nodes: slides },
+    allSlidesYaml: { nodes: slides },
   } = data;
 
-  const pages = slides.map(({ caption, imageFile }) => ({ style }) => (
+  const pages = slides.map(({ slideCaption, imageFile }) => ({ style }) => (
     <animated.div style={{ ...style }}>
       <div
         css={css`
@@ -17,14 +17,14 @@ const HomePage = ({ data }) => {
         `}
       >
         <img
-          alt={caption}
+          alt={slideCaption}
           css={css`
             max-width: 100%;
           `}
           src={imageFile.childImageSharp.fluid.src}
         />
       </div>
-      <p>{caption}</p>
+      <p>{slideCaption}</p>
     </animated.div>
   ));
 
@@ -84,10 +84,10 @@ export default HomePage;
 
 export const query = graphql`
   query SlideQuery {
-    allArtworkSlide {
+    allSlidesYaml {
       nodes {
         artForm
-        caption
+        slideCaption
         imageFile {
           childImageSharp {
             fluid(maxWidth: 800) {

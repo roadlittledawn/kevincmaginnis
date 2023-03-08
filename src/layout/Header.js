@@ -7,6 +7,7 @@ const Header = () => {
     <>
       <div
         css={css`
+          padding: var(--site-content-padding);
           display: flex;
           justify-content: flex-start;
           flex-wrap: wrap;
@@ -14,10 +15,19 @@ const Header = () => {
           font-weight: 300;
           letter-spacing: 0.5em;
           text-transform: uppercase;
+          > * {
+            margin-right: 1em;
+          }
         `}
       >
         <div>Kevin</div>
-        <div>C</div>
+        <div
+          css={css`
+            color: red;
+          `}
+        >
+          C
+        </div>
         <div>Maginnis</div>
       </div>
     </>

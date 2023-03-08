@@ -3,7 +3,7 @@ module.exports = {
   siteMetadata: {
     title: `Kevin C Maginnis`,
     titleTemplate: "Kevin C Maginnis | %s",
-    siteUrl: `https://aesthetic-bienenstitch-01eb0a.netlify.app`,
+    siteUrl: `https://kevincmagnnis.netlify.app`,
   },
   plugins: [
     "gatsby-transformer-remark",
