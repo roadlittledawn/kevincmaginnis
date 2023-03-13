@@ -1,52 +1,38 @@
-- title: 23-4-F
+- title: 23-6-F
   year: 2023
   artForm: painting
   slideMedia:
     type: image
-    fileName: swirls.jpeg
-  slideCaption: '23-4-F, acrylic on linen, 54" x 48" x 1.25" (137.16 x 121.92 x 3.18 cm)'
-- title: 23-1-E
+    fileName: 23-6-F.jpeg
+  slideCaption: '23-6-F, acrylic on linen, 54" x 48" x 1.5" (137.16 x 121.92 x 3.81 cm)'
+  - title: 23-1-E
   year: 2023
   artForm: painting
   slideMedia:
     type: image
-    fileName: arch.jpeg
-  slideCaption: '23-1-E, acrylic on linen, 30" x 36" x 1.25" (76.2 x 91.44 x 3.18 cm)'
-- title: 23-1-D
+    fileName: 23-1-E.jpeg
+  slideCaption: '23-1-E, acrylic on linen, 30" x 36" x 1.5" (76.2 x 91.44 x 3.81 cm)'
+- title: 23-10-H
   year: 2023
   artForm: painting
   slideMedia:
     type: image
-    fileName: snake.jpeg
-  slideCaption: '23-1-D, acrylic on linen, 30" x 28" x 1.25" (76.2 x 71.12 x 3.18 cm)'
-- title: 22-5-C
+    fileName: 23-10-H.jpeg
+  slideCaption: '23-10-H, acrylic on linen, 40" x 40" x 1.5" (101.6 x 101.6 x 3.81 cm)'
+- title: 23-6-G
+  year: 2023
+  artForm: painting
+  slideMedia:
+    type: image
+    fileName: 23-6-G.jpeg
+  slideCaption: '23-6-G, acrylic on linen, 24" x 28" x 1.5" (60.96 x 71.12 x 3.81 cm)'
+- title: 22-5-B
   year: 2022
   artForm: painting
   slideMedia:
     type: image
-    fileName: skylight.jpeg
-  slideCaption: '22-5-C, acrylic on linen, 30" x 28" x 1.25" (76.2 x 71.12 x 3.18 cm)'
-- title: 22-3-B
-  year: 2023
-  artForm: painting
-  slideMedia:
-    type: image
-    fileName: door.jpeg
-  slideCaption: '22-3-B, 2022, acrylic on linen, 30" x 20" x 1.25" (76.2 x 50.8 x 3.18 cm)'
-- title: Orange Loop on Blue Canvas
-  year: 2022
-  artForm: painting
-  slideMedia:
-    type: image
-    fileName: orange-loop-on-blue-canvas-1.jpeg
-  slideCaption: 'Orange Loop on Blue Canvas, 2022, acrylic on linen, 20" x 20" x 1.25" (50.8 x50.8 x 3.18 cm)'
-- title: Close Tightly
-  year: 2021
-  artForm: sculpture
-  slideMedia:
-    type: image
-    fileName: close-tightly-1.jpg
-  slideCaption: Close Tightly, 2021, bronze, 2.5" x 17" x 0.75" (6.35 x 43.18 x 1.91 cm)
+    fileName: 22-5-B.jpeg
+  slideCaption: '22-5-B, acrylic on linen, 30" x 20" x 1.5" (76.2 x 50.8 x 3.81 cm)'
 - title: Yellow Line on Purple Canvas
   year: 2022
   artForm: painting
@@ -68,6 +54,13 @@
     type: image
     fileName: blue-lines-on-purple-canvas.jpeg
   slideCaption: 'Blue Lines on Purple Canvas, 2022, acrylic on linen, 24" x 20" x 1.25" (60.96 x50.8 x 3.18 cm)'
+  - title: Close Tightly
+  year: 2021
+  artForm: sculpture
+  slideMedia:
+    type: image
+    fileName: close-tightly-1.jpg
+  slideCaption: Close Tightly, 2021, bronze, 2.5" x 17" x 0.75" (6.35 x 43.18 x 1.91 cm)
 - title: Corner of My Studio
   year: 2020
   artForm: painting
