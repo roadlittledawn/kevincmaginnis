@@ -5,7 +5,7 @@
     type: image
     fileName: 23-6-F.jpeg
   slideCaption: '23-6-F, acrylic on linen, 54" x 48" x 1.5" (137.16 x 121.92 x 3.81 cm)'
-  - title: 23-1-E
+- title: 23-1-E
   year: 2023
   artForm: painting
   slideMedia:
@@ -54,7 +54,7 @@
     type: image
     fileName: blue-lines-on-purple-canvas.jpeg
   slideCaption: 'Blue Lines on Purple Canvas, 2022, acrylic on linen, 24" x 20" x 1.25" (60.96 x50.8 x 3.18 cm)'
-  - title: Close Tightly
+- title: Close Tightly
   year: 2021
   artForm: sculpture
   slideMedia:
