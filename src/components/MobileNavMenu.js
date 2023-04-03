@@ -41,7 +41,7 @@ const MobileNavMenu = () => {
         <Link to="/">Artwork</Link>
         <Link to="/bio">Bio</Link>
         <Link to="/contact">Contact</Link>
-        <Link href="/cv">CV</Link>
+        <Link to="/cv">CV</Link>
       </nav>
     </>
   );
