@@ -45,7 +45,7 @@
   artForm: sculpture
   slideMedia:
     type: image
-    fileName: close-tightly-1.jpg
+    fileName: close-tightly-768x512.jpg
   slideCaption: Close Tightly, 2021, bronze, 2.5" x 17" x 0.75" (6.35 x 43.18 x 1.91 cm)
 - title: Yellow Line on Purple Canvas
   year: 2022
@@ -59,14 +59,14 @@
   artForm: painting
   slideMedia:
     type: image
-    fileName: yellow-lines-on-pink-canvas.jpeg
+    fileName: yellow-lines-on-pink-canvas-768x922.jpeg
   slideCaption: 'Yellow Lines on Pink Canvas, 2022, acrylic on linen, 24" x 20" x 1.25" (60.96 x50.8 x 3.18 cm)'
 - title: Blue Lines on Purple Canvas
   year: 2022
   artForm: painting
   slideMedia:
     type: image
-    fileName: blue-lines-on-purple-canvas.jpeg
+    fileName: blue-lines-on-purple-canvas-768x912.jpeg
   slideCaption: 'Blue Lines on Purple Canvas, 2022, acrylic on linen, 24" x 20" x 1.25" (60.96 x50.8 x 3.18 cm)'
 - title: Corner of My Studio
   year: 2020
@@ -332,7 +332,7 @@
   artForm: sculpture
   slideMedia:
     type: image
-    fileName: no-title.jpg
+    fileName: no-title-slide-768x768.jpg
   slideCaption: 'No Title, 1989, painted wood, 5" x 38" x 62" (12.7 x 96.52 x 157.48 cm)'
 - title: Super Painting With Eight Circular Shapes
   year: 1987

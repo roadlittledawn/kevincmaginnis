@@ -49,33 +49,50 @@ const HomePage = ({ data }) => {
 
   return (
     <>
-      <div
-        css={css`
-          width: 100%;
-          max-width: 500px;
-        `}
-      >
         <div
           css={css`
             display: flex;
-            flex-wrap: none;
-            justify-content: space-between;
+            justify-content: space-evenly;
           `}
         >
+          <div css={css`
+          align-items: center;
+          display: flex;
+          justify-content: center;
+        `}>
           {currentSlide !== 0 && (
-            <button onClick={showPreviousSlide}>&lt; Previous</button>
+            <button onClick={showPreviousSlide} css={css`
+            background: none;
+            border: none;
+            font-size: 2em;
+            font-weight: 900;
+          `}>&lt;</button>
           )}
-          {currentSlide !== slides.length - 1 && (
-            <button onClick={showNextImage}>Next &gt;</button>
-          )}
-        </div>
-        <div>
+          </div>
+          <div css={css`
+          width: 100%;
+          max-width: 500px;
+        `}>
           {transitions((style, i) => {
             const Page = pages[i];
             return <Page style={style} />;
           })}
         </div>
-      </div>
+          <div css={css`
+          align-items: center;
+          display: flex;
+          justify-content: center;
+        `}>
+          {currentSlide !== slides.length - 1 && (
+            <button onClick={showNextImage} css={css`
+            background: none;
+            border: none;
+            font-size: 2em;
+            font-weight: 900;
+          `}>&gt;</button>
+          )}
+          </div>
+        </div>
     </>
   );
 };
