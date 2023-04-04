@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import React from "react";
 import { css, jsx } from "@emotion/react";
-import { Link } from "gatsby";
 import NavMenu from "../components/NavMenu/NavMenu";
+import { SITE_OPTIONS } from "../utils/contants";
 
 const Sidebar = ({ location }) => {
   return (
@@ -10,7 +10,7 @@ const Sidebar = ({ location }) => {
       css={css`
         padding: var(--site-content-padding);
         grid-area: sidebar;
-        @media screen and (max-width: 760px) {
+        @media screen and (max-width: ${SITE_OPTIONS.mobileBreakpoint}) {
           display: none;
         }
       `}

@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import React from "react";
 import { css, jsx } from "@emotion/react";
+import { SITE_OPTIONS } from "../utils/contants";
 
 const Header = () => {
   return (
@@ -11,10 +12,16 @@ const Header = () => {
           display: flex;
           justify-content: flex-start;
           flex-wrap: wrap;
-          font-size: 3vw;
+          font-size: 3em;
           font-weight: 300;
           letter-spacing: 0.5em;
           text-transform: uppercase;
+          @media screen and (max-width: ${SITE_OPTIONS.mobileBreakpoint}) {
+            font-size: 2em;
+          }
+          @media screen and (max-width: ${SITE_OPTIONS.mobileWidthSmall}) {
+            font-size: 1.75em;
+          }
           > * {
             margin-right: 1em;
           }
