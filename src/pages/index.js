@@ -3,30 +3,44 @@ import React, { useEffect, useState } from "react";
 import { graphql } from "gatsby";
 import { css, jsx } from "@emotion/react";
 import { useTransition, animated, useSpringRef } from "@react-spring/web";
+import Video from "../components/Video";
 
 const HomePage = ({ data }) => {
   const {
     allSlidesYaml: { nodes: slides },
   } = data;
 
-  const pages = slides.map(({ slideCaption, imageFile }) => ({ style }) => (
-    <animated.div style={{ ...style }}>
-      <div
-        css={css`
-          max-width: 700px;
-        `}
-      >
-        <img
-          alt={slideCaption}
-          css={css`
-            max-width: 100%;
-          `}
-          src={imageFile.childImageSharp.fluid.src}
-        />
-      </div>
-      <p>{slideCaption}</p>
-    </animated.div>
-  ));
+  const pages = slides.map(
+    ({ slideCaption, slideMedia, imageFile }) =>
+      ({ style }) =>
+        (
+          <animated.div style={{ ...style }}>
+            <div
+              css={css`
+                max-width: 500px;
+                min-height: 300px;
+                text-align: center;
+              `}
+            >
+              {slideMedia.type === "image" ? (
+                <img
+                  alt={slideCaption}
+                  css={css`
+                    max-width: 100%;
+                  `}
+                  src={imageFile.childImageSharp.fluid.src}
+                />
+              ) : (
+                <Video
+                  type={slideMedia.videoPlatform || "youtube"}
+                  id={slideMedia.videoId}
+                />
+              )}
+            </div>
+            <p>{slideCaption}</p>
+          </animated.div>
+        )
+  );
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const showNextImage = () =>
@@ -88,6 +102,11 @@ export const query = graphql`
       nodes {
         artForm
         slideCaption
+        slideMedia {
+          type
+          videoPlatform
+          videoId
+        }
         imageFile {
           childImageSharp {
             fluid(maxWidth: 800) {
