@@ -11,11 +11,33 @@ const HomePage = ({ data }) => {
     allSlidesYaml: { nodes: slides },
   } = data;
 
-  const pages = slides.map(
-    ({ slideCaption, slideMedia, imageFile }) =>
-      ({ style }) =>
-        (
-          <animated.div style={{ ...style }}>
+  const pages = slides.map(({ slideCaption, slideMedia, imageFile }) => {
+    if (slideMedia.type === "image") {
+      return ({ style }) => (
+        <animated.div style={{ ...style }}>
+          <div
+            css={css`
+              max-width: 500px;
+              min-height: 300px;
+              text-align: center;
+            `}
+          >
+            <img
+              alt={slideCaption}
+              css={css`
+                max-width: 100%;
+              `}
+              src={imageFile.childImageSharp.fluid.src}
+            />
+          </div>
+          <p>{slideCaption}</p>
+        </animated.div>
+      );
+    }
+    if (slideMedia.type === "video") {
+      return () => {
+        return (
+          <animated.div>
             <div
               css={css`
                 max-width: 500px;
@@ -23,25 +45,17 @@ const HomePage = ({ data }) => {
                 text-align: center;
               `}
             >
-              {slideMedia.type === "image" ? (
-                <img
-                  alt={slideCaption}
-                  css={css`
-                    max-width: 100%;
-                  `}
-                  src={imageFile.childImageSharp.fluid.src}
-                />
-              ) : (
-                <Video
-                  type={slideMedia.videoPlatform || "youtube"}
-                  id={slideMedia.videoId}
-                />
-              )}
+              <Video
+                type={slideMedia.videoPlatform || "youtube"}
+                id={slideMedia.videoId}
+              />
             </div>
             <p>{slideCaption}</p>
           </animated.div>
-        )
-  );
+        );
+      };
+    }
+  });
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const showNextImage = () =>
