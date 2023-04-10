@@ -33,7 +33,7 @@ const Layout = ({ children, location }) => {
       <div
         css={css`
           display: grid;
-          grid-template-columns: 300px 700px;
+          grid-template-columns: 2.5fr 7fr;
           grid-template-areas: "sidebar main";
           grid-template-rows: 1fr auto;
           min-height: calc(100vh - 5rem);

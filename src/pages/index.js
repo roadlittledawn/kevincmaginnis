@@ -4,6 +4,7 @@ import { graphql } from "gatsby";
 import { css, jsx } from "@emotion/react";
 import { useTransition, animated, useSpringRef } from "@react-spring/web";
 import Video from "../components/Video";
+import FeatherIcon from "../components/FeatherIcon";
 
 const HomePage = ({ data }) => {
   const {
@@ -77,10 +78,28 @@ const HomePage = ({ data }) => {
           `}
         >
           {currentSlide !== 0 && (
-            <button onClick={showPreviousSlide}>&lt; Previous</button>
+            <button
+              onClick={showPreviousSlide}
+              css={css`
+                background: none;
+                border: none;
+                cursor: pointer;
+              `}
+            >
+              <FeatherIcon name="chevron-left" size={48} color="#515151" />
+            </button>
           )}
           {currentSlide !== slides.length - 1 && (
-            <button onClick={showNextImage}>Next &gt;</button>
+            <button
+              onClick={showNextImage}
+              css={css`
+                background: none;
+                border: none;
+                cursor: pointer;
+              `}
+            >
+              <FeatherIcon name="chevron-right" size={48} color="#515151" />
+            </button>
           )}
         </div>
         <div>
