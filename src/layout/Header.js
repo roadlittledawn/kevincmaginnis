@@ -9,9 +9,8 @@ const Header = () => {
       <div
         css={css`
           padding: var(--site-content-padding);
-          display: flex;
-          justify-content: flex-start;
-          flex-wrap: wrap;
+          display: grid;
+          grid-template-columns: 2fr 1fr 4fr 3fr;
           font-size: 3em;
           font-weight: 300;
           letter-spacing: 0.5em;

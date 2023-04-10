@@ -38,21 +38,21 @@
   artForm: painting
   slideMedia:
     type: image
-    fileName: yellow-line-on-purple-canvas.jpeg
+    fileName: yellow-line-on-purple-canvas-281x450.jpeg
   slideCaption: 'Yellow Line on Purple Canvas, 2022, acrylic on linen, 32" x 20" x 1.25" (81.28 x50.8 x 3.18 cm)'
 - title: Yellow Lines on Pink Canvas
   year: 2022
   artForm: painting
   slideMedia:
     type: image
-    fileName: yellow-lines-on-pink-canvas.jpeg
+    fileName: yellow-lines-on-pink-canvas-768x922.jpeg
   slideCaption: 'Yellow Lines on Pink Canvas, 2022, acrylic on linen, 24" x 20" x 1.25" (60.96 x50.8 x 3.18 cm)'
 - title: Blue Lines on Purple Canvas
   year: 2022
   artForm: painting
   slideMedia:
     type: image
-    fileName: blue-lines-on-purple-canvas.jpeg
+    fileName: blue-lines-on-purple-canvas-768x912.jpeg
   slideCaption: 'Blue Lines on Purple Canvas, 2022, acrylic on linen, 24" x 20" x 1.25" (60.96 x50.8 x 3.18 cm)'
 - title: Close Tightly
   year: 2021
