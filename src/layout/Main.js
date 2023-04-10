@@ -7,6 +7,7 @@ const Main = ({ children }) => {
     <div
       css={css`
         grid-area: main;
+        padding-top: 2em;
       `}
     >
       {children}

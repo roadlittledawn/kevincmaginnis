@@ -15,6 +15,7 @@ const Layout = ({ children, location }) => {
     <div
       css={css`
         max-width: var(--site-max-width);
+        padding: var(--site-content-padding);
         margin: 0 auto;
       `}
     >
@@ -33,9 +34,9 @@ const Layout = ({ children, location }) => {
       <div
         css={css`
           display: grid;
-          grid-template-columns: 2.5fr 7fr;
+          grid-template-columns: 250px auto;
           grid-template-areas: "sidebar main";
-          grid-template-rows: 1fr auto;
+          gap: 2em;
           min-height: calc(100vh - 5rem);
           @media screen and (max-width: 760px) {
             grid-template-columns: minmax(0, 1fr);

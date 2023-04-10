@@ -8,15 +8,20 @@ const Header = () => {
     <>
       <div
         css={css`
-          padding: var(--site-content-padding);
           display: grid;
-          grid-template-columns: 2fr 1fr 4fr 3fr;
+          grid-template-columns: 250px 50px auto;
+          grid-template-areas: "firstName middleInitial lastName";
+          gap: 2rem;
+          margin-right: 2em;
           font-size: 3em;
           font-weight: 300;
           letter-spacing: 0.5em;
           text-transform: uppercase;
           @media screen and (max-width: ${SITE_OPTIONS.mobileBreakpoint}) {
             font-size: 2em;
+            display: flex;
+            flex-wrap: wrap;
+            row-gap: 5px;
           }
           @media screen and (max-width: ${SITE_OPTIONS.mobileWidthSmall}) {
             font-size: 1.75em;
@@ -26,15 +31,28 @@ const Header = () => {
           }
         `}
       >
-        <div>Kevin</div>
+        <div
+          css={css`
+            grid-area: firstName;
+          `}
+        >
+          Kevin
+        </div>
         <div
           css={css`
             color: red;
+            grid-area: middleInitial;
           `}
         >
           C
         </div>
-        <div>Maginnis</div>
+        <div
+          css={css`
+            grid-area: lastName;
+          `}
+        >
+          Maginnis
+        </div>
       </div>
     </>
   );
