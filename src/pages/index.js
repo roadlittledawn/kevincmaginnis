@@ -27,6 +27,7 @@ const HomePage = ({ data }) => {
         <div
           css={css`
             display: flex;
+            flex-direction: row;
             flex-wrap: none;
             justify-content: space-between;
           `}
@@ -38,11 +39,20 @@ const HomePage = ({ data }) => {
                 background: none;
                 border: none;
                 cursor: pointer;
+                margin-right: auto;
               `}
             >
               <FeatherIcon name="chevron-left" size={48} color="#515151" />
             </button>
           )}
+          <div
+            css={css`
+              margin-left: ${currentSlide === 0 ? "auto" : 0};
+              margin-right: ${currentSlide === slides.length - 1 ? "auto" : 0};
+            `}
+          >
+            {currentSlide + 1} of {slides.length}
+          </div>
           {currentSlide !== slides.length - 1 && (
             <button
               onClick={showNextImage}
@@ -50,6 +60,7 @@ const HomePage = ({ data }) => {
                 background: none;
                 border: none;
                 cursor: pointer;
+                margin-left: auto;
               `}
             >
               <FeatherIcon name="chevron-right" size={48} color="#515151" />
