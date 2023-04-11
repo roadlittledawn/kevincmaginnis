@@ -7,10 +7,11 @@ const videoPlatforms = {
   youtube: (id) => `//www.youtube.com/embed/${id}?modestbranding=1`,
 };
 
-const Video = ({ id, type, title, className, width }) => {
+const Video = ({ id, type = "youtube", title, className, width, style }) => {
   return (
     <div
       className={className}
+      style={style}
       css={css`
         max-width: ${width};
       `}
@@ -43,10 +44,11 @@ const Video = ({ id, type, title, className, width }) => {
 
 Video.propTypes = {
   id: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(Object.keys(videoPlatforms)).isRequired,
+  type: PropTypes.oneOf(Object.keys(videoPlatforms)),
   title: PropTypes.string,
   className: PropTypes.string,
   width: PropTypes.string,
+  style: PropTypes.object,
 };
 
 export default Video;
