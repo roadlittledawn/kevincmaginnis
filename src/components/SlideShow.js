@@ -35,45 +35,67 @@ const SlideShow = ({
       css={css`
         position: relative;
         text-align: center;
+        height: ${slides[index].imageFile
+          ? `${slides[index].imageFile.childImageSharp.fluid.presentationHeight}px`
+          : "auto"};
       `}
     >
-      {slides.map((slide, i) => (
-        <div
-          key={`slide-${i}`}
-          style={{ opacity: i === index ? 1 : 0 }}
-          css={css`
-            transition: opacity 1s ease-in-out;
-          `}
-        >
-          {slide.slideMedia.type === "image" && (
-            <img
-              css={css`
-                display: block;
-                position: absolute;
-                right: 0;
-                left: 0;
-                margin: auto;
-
-                max-width: 100%;
-              `}
-              key={i}
-              src={slide.imageFile.childImageSharp.fluid.src}
-              alt={"slide.slideCaption"}
-              onLoad={i === 0 ? nextImage : undefined}
-            />
-          )}
-          {slide.slideMedia.type === "video" && (
-            <Video
+      {slides.map((slide, i) => {
+        const isShown = i === index;
+        return (
+          <div
+            key={`slide-${i}`}
+            css={css`
+              opacity: ${isShown ? 1 : 0};
+              transform: ${isShown ? "translateX(0px)" : "translateX(9999px)"};
+              transition: opacity 1s ease-in-out 0.1s;
+            `}
+          >
+            {slide.slideMedia.type === "image" && (
+              <div
+                css={css`
+                  position: relative;
+                `}
+              >
+                <img
+                  css={css`
+                    position: absolute;
+                    right: 0;
+                    left: 0;
+                    margin: auto;
+                    max-width: 100%;
+                  `}
+                  key={i}
+                  src={slide.imageFile.childImageSharp.fluid.src}
+                  alt={"slide.slideCaption"}
+                  onLoad={i === 0 ? nextImage : undefined}
+                />
+              </div>
+            )}
+            {slide.slideMedia.type === "video" && (
+              <Video
+                style={{
+                  opacity: isShown ? 1 : 0,
+                  display: isShown ? "block" : "none",
+                  transform: isShown ? "translateX(0px)" : "translateX(9999px)",
+                }}
+                type={slide.slideMedia.videoPlatform || null}
+                id={slide.slideMedia.videoId}
+              />
+            )}
+            <div
               style={{
-                opacity: i === index ? 1 : 0,
-                display: i === index ? "block" : "none",
+                position: "absolute",
+                top: slide.imageFile
+                  ? `${slide.imageFile.childImageSharp.fluid.presentationHeight}px`
+                  : `auto`,
               }}
-              type={slide.slideMedia.videoPlatform || null}
-              id={slide.slideMedia.videoId}
-            />
-          )}
-        </div>
-      ))}
+            >
+              {slide.slideCaption}
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 };
