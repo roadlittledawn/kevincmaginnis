@@ -1,53 +1,20 @@
 /** @jsx jsx */
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { graphql } from "gatsby";
 import { css, jsx } from "@emotion/react";
-import { useTransition, animated, useSpringRef } from "@react-spring/web";
 import FeatherIcon from "../components/FeatherIcon";
-
+import SlideShow from "../components/SlideShow";
 
 const HomePage = ({ data }) => {
   const {
     allSlidesYaml: { nodes: slides },
   } = data;
 
-  const pages = slides.map(({ slideCaption, imageFile }) => ({ style }) => (
-    <animated.div style={{ ...style }}>
-      <div
-        css={css`
-          max-width: 700px;
-        `}
-      >
-        <img
-          alt={slideCaption}
-          css={css`
-            max-width: 100%;
-          `}
-          src={imageFile.childImageSharp.fluid.src}
-        />
-      </div>
-      <p>{slideCaption}</p>
-    </animated.div>
-  ));
-
   const [currentSlide, setCurrentSlide] = useState(0);
   const showNextImage = () =>
     setCurrentSlide((state) => (state + 1) % slides.length);
   const showPreviousSlide = () =>
     setCurrentSlide((state) => (state - 1) % slides.length);
-
-  const transRef = useSpringRef();
-  const transitions = useTransition(currentSlide, {
-    ref: transRef,
-    keys: null,
-    from: { opacity: 0, transition: "opacity .5s linear" },
-    enter: { opacity: 1 },
-    leave: { opacity: 0 },
-    exitBeforeEnter: true,
-  });
-  useEffect(() => {
-    transRef.start();
-  });
 
   return (
     <>
@@ -60,31 +27,47 @@ const HomePage = ({ data }) => {
         <div
           css={css`
             display: flex;
+            flex-direction: row;
             flex-wrap: none;
             justify-content: space-between;
           `}
         >
           {currentSlide !== 0 && (
-            <button onClick={showPreviousSlide} css={css`
-            background: none;
-            border: none;
-            cursor: pointer;
-          `}><FeatherIcon name="chevron-left" size={48} color="#515151"/></button>
+            <button
+              onClick={showPreviousSlide}
+              css={css`
+                background: none;
+                border: none;
+                cursor: pointer;
+                margin-right: auto;
+              `}
+            >
+              <FeatherIcon name="chevron-left" size={48} color="#515151" />
+            </button>
           )}
+          <div
+            css={css`
+              margin-left: ${currentSlide === 0 ? "auto" : 0};
+              margin-right: ${currentSlide === slides.length - 1 ? "auto" : 0};
+            `}
+          >
+            {currentSlide + 1} of {slides.length}
+          </div>
           {currentSlide !== slides.length - 1 && (
-            <button onClick={showNextImage} css={css`
-            background: none;
-            border: none;
-            cursor: pointer;
-          `}><FeatherIcon name="chevron-right" size={48} color="#515151"/></button>
+            <button
+              onClick={showNextImage}
+              css={css`
+                background: none;
+                border: none;
+                cursor: pointer;
+                margin-left: auto;
+              `}
+            >
+              <FeatherIcon name="chevron-right" size={48} color="#515151" />
+            </button>
           )}
         </div>
-        <div>
-          {transitions((style, i) => {
-            const Page = pages[i];
-            return <Page style={style} />;
-          })}
-        </div>
+        <SlideShow slides={slides} currentSlideIndex={currentSlide} />
       </div>
     </>
   );
@@ -98,10 +81,16 @@ export const query = graphql`
       nodes {
         artForm
         slideCaption
+        slideMedia {
+          type
+          videoPlatform
+          videoId
+        }
         imageFile {
           childImageSharp {
-            fluid(maxWidth: 800) {
+            fluid(maxWidth: 500) {
               src
+              presentationHeight
               ...GatsbyImageSharpFluid
             }
           }

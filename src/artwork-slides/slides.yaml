@@ -1,3 +1,19 @@
+- title: Video tour of Suburuban
+  year: 2015
+  artForm: installation
+  slideMedia:
+    type: video
+    videoPlatform: youtube
+    videoId: jpURcXltzFQ
+  slideCaption: "Untitled, 2015, foamcore, cork, sandpaper, acrylic paint, composite goldleaf, 10' x 14' x 20'"
+- title: Video tour of Spun
+  year: 2015
+  artForm: installation
+  slideMedia:
+    type: video
+    videoPlatform: youtube
+    videoId: A5Wdzi8P3Oc
+  slideCaption: "Video tour of 'Spun' by Kevin Maginnis. The gallery has been replicated meticulously out of non-building materials about about 46 cm away from the actual gallery surface. The faux gallery has been turned upside down and twisted by about 20 degrees. Inside 'Spun' 20 different artists platformed their work inside the installation."
 - title: 23-6-F
   year: 2023
   artForm: painting
@@ -137,7 +153,7 @@
   slideMedia:
     type: image
     fileName: black-detail-blue-cast-768x512.jpg
-  slideCaption: 'Black, 2019 (detail)'
+  slideCaption: "Black, 2019 (detail)"
 - title: Fence
   year: 2018
   artForm: sculpture
@@ -151,14 +167,14 @@
   slideMedia:
     type: image
     fileName: fence-detail-768x512.jpg
-  slideCaption: 'Fence, 2018 (detail)'
+  slideCaption: "Fence, 2018 (detail)"
 - title: Fence
   year: 2018
   artForm: sculpture
   slideMedia:
     type: image
     fileName: fence-bottom-detail-768x576.jpg
-  slideCaption: 'Fence, 2018 (detail, bottom)'
+  slideCaption: "Fence, 2018 (detail, bottom)"
 - title: Footpath
   year: 2018
   artForm: installation
@@ -172,7 +188,7 @@
   slideMedia:
     type: image
     fileName: 4_footpath-detail-768x1151.jpg
-  slideCaption: 'Footpath, 2017-2018 (detail)'
+  slideCaption: "Footpath, 2017-2018 (detail)"
 - title: Spun
   year: 2016
   artForm: installation
@@ -186,42 +202,42 @@
   slideMedia:
     type: image
     fileName: spun-east-wall-view-slide-768x513.jpg
-  slideCaption: 'Spun, 2016'
+  slideCaption: "Spun, 2016"
 - title: Spun
   year: 2016
   artForm: installation
   slideMedia:
     type: image
     fileName: spun-south-wall-view-with-riepenhoff-in-background-slide-768x513.jpg
-  slideCaption: 'Spun, 2016'
+  slideCaption: "Spun, 2016"
 - title: Spun
   year: 2016
   artForm: installation
   slideMedia:
     type: image
     fileName: spun-west-wall-view-slide-768x513.jpg
-  slideCaption: 'Spun, 2016'
+  slideCaption: "Spun, 2016"
 - title: Spun
   year: 2016
   artForm: installation
   slideMedia:
     type: image
     fileName: spun-south-wall-view-with-riepenhoff-and-evron-slide-768x513.jpg
-  slideCaption: 'Spun, 2016'
+  slideCaption: "Spun, 2016"
 - title: Spun
   year: 2016
   artForm: installation
   slideMedia:
     type: image
     fileName: spun-southwest-wall-view-slide-768x513.jpg
-  slideCaption: 'Spun, 2016'
+  slideCaption: "Spun, 2016"
 - title: Spun
   year: 2016
   artForm: installation
   slideMedia:
     type: image
     fileName: spun-north-wall-view-slide-768x513.jpg
-  slideCaption: 'Spun, 2016'
+  slideCaption: "Spun, 2016"
 - title: Untitled (Suburban Installation)
   year: 2015
   artForm: installation
@@ -235,35 +251,35 @@
   slideMedia:
     type: image
     fileName: insideviewlookingdown-slide-768x768.jpg
-  slideCaption: 'Untitled (Suburban Installation), 2015'
+  slideCaption: "Untitled (Suburban Installation), 2015"
 - title: Untitled (Suburban Installation)
   year: 2015
   artForm: installation
   slideMedia:
     type: image
     fileName: roofviewofmediumsize-slide-768x768.jpg
-  slideCaption: 'Untitled (Suburban Installation), 2015'
+  slideCaption: "Untitled (Suburban Installation), 2015"
 - title: Untitled (Suburban Installation)
   year: 2015
   artForm: installation
   slideMedia:
     type: image
     fileName: insideviewlookingout-slide-768x768.jpg
-  slideCaption: 'Untitled (Suburban Installation), 2015'
+  slideCaption: "Untitled (Suburban Installation), 2015"
 - title: Untitled (Suburban Installation)
   year: 2015
   artForm: installation
   slideMedia:
     type: image
     fileName: insideviewoflittlesuburban-slide-768x768.jpg
-  slideCaption: 'Untitled (Suburban Installation), 2015'
+  slideCaption: "Untitled (Suburban Installation), 2015"
 - title: Untitled (Suburban Installation)
   year: 2015
   artForm: installation
   slideMedia:
     type: image
     fileName: outsideviewatdusk-slide-768x768.jpg
-  slideCaption: 'Untitled (Suburban Installation), 2015'
+  slideCaption: "Untitled (Suburban Installation), 2015"
 - title: Stair Flight Double
   year: 2014
   artForm: installation
@@ -312,7 +328,7 @@
   slideMedia:
     type: image
     fileName: gold-fish-slide-768x768.jpg
-  slideCaption: 'Gold Fish (detail), 1990, cibachrome print from X-ray film'
+  slideCaption: "Gold Fish (detail), 1990, cibachrome print from X-ray film"
 - title: Americium
   year: 1990
   artForm: sculpture
