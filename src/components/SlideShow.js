@@ -36,12 +36,13 @@ const SlideShow = ({
       css={css`
         text-align: center;
         overflow: hidden;
-        height: ${slides[index].imageFile
+        height: auto;
+        /* height: ${slides[index].imageFile
           ? `${
               slides[index].imageFile.childImageSharp.fluid.presentationHeight +
               80
             }px`
-          : "auto"};
+          : "auto"}; */
         /* @media screen and (max-width: ${SITE_OPTIONS.mobileBreakpoint}) {
           height: auto;
         } */
@@ -54,8 +55,6 @@ const SlideShow = ({
             key={`slide-${i}`}
             css={css`
               opacity: ${isShown ? 1 : 0};
-              /* position: absolute; */
-              /* display: ${isShown ? "block" : "none"}; */
               transform: ${isShown ? "translateX(0px)" : "translateX(9999px)"};
               transition: opacity 1s ease-in-out 0.1s;
             `}
@@ -67,6 +66,7 @@ const SlideShow = ({
                 `}
               >
                 <img
+                  style={{ position: isShown ? "static" : "absolute" }}
                   css={css`
                     position: absolute;
                     right: 0;
@@ -95,9 +95,10 @@ const SlideShow = ({
             <div
               style={{
                 display: isShown ? "block" : "none",
-                // position: "absolute",
                 position:
-                  slide.slideMedia.type === "image" ? "absolute" : "relative",
+                  slide.slideMedia.type === "image" && isShown
+                    ? "static"
+                    : "relative",
                 top: slide.imageFile
                   ? `${slide.imageFile.childImageSharp.fluid.presentationHeight}px`
                   : `auto`,
