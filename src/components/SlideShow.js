@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { css, jsx } from "@emotion/react";
 import PropTypes from "prop-types";
 import Video from "./Video";
+import { SITE_OPTIONS } from "../utils/contants";
 
 const SlideShow = ({
   slides,
@@ -33,11 +34,9 @@ const SlideShow = ({
   return (
     <div
       css={css`
-        position: relative;
         text-align: center;
-        height: ${slides[index].imageFile
-          ? `${slides[index].imageFile.childImageSharp.fluid.presentationHeight}px`
-          : "auto"};
+        overflow: hidden;
+        height: auto;
       `}
     >
       {slides.map((slide, i) => {
@@ -58,6 +57,7 @@ const SlideShow = ({
                 `}
               >
                 <img
+                  style={{ position: isShown ? "static" : "absolute" }}
                   css={css`
                     position: absolute;
                     right: 0;
@@ -85,7 +85,11 @@ const SlideShow = ({
             )}
             <div
               style={{
-                position: "absolute",
+                display: isShown ? "block" : "none",
+                position:
+                  slide.slideMedia.type === "image" && isShown
+                    ? "static"
+                    : "relative",
                 top: slide.imageFile
                   ? `${slide.imageFile.childImageSharp.fluid.presentationHeight}px`
                   : `auto`,
