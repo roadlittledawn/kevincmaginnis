@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { css, jsx } from "@emotion/react";
 import PropTypes from "prop-types";
 import Video from "./Video";
+import { SITE_OPTIONS } from "../utils/contants";
 
 const SlideShow = ({
   slides,
@@ -33,11 +34,17 @@ const SlideShow = ({
   return (
     <div
       css={css`
-        position: relative;
         text-align: center;
+        overflow: hidden;
         height: ${slides[index].imageFile
-          ? `${slides[index].imageFile.childImageSharp.fluid.presentationHeight}px`
+          ? `${
+              slides[index].imageFile.childImageSharp.fluid.presentationHeight +
+              80
+            }px`
           : "auto"};
+        /* @media screen and (max-width: ${SITE_OPTIONS.mobileBreakpoint}) {
+          height: auto;
+        } */
       `}
     >
       {slides.map((slide, i) => {
@@ -47,6 +54,8 @@ const SlideShow = ({
             key={`slide-${i}`}
             css={css`
               opacity: ${isShown ? 1 : 0};
+              /* position: absolute; */
+              /* display: ${isShown ? "block" : "none"}; */
               transform: ${isShown ? "translateX(0px)" : "translateX(9999px)"};
               transition: opacity 1s ease-in-out 0.1s;
             `}
@@ -85,7 +94,10 @@ const SlideShow = ({
             )}
             <div
               style={{
-                position: "absolute",
+                display: isShown ? "block" : "none",
+                // position: "absolute",
+                position:
+                  slide.slideMedia.type === "image" ? "absolute" : "relative",
                 top: slide.imageFile
                   ? `${slide.imageFile.childImageSharp.fluid.presentationHeight}px`
                   : `auto`,
