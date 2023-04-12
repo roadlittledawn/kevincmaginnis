@@ -37,15 +37,6 @@ const SlideShow = ({
         text-align: center;
         overflow: hidden;
         height: auto;
-        /* height: ${slides[index].imageFile
-          ? `${
-              slides[index].imageFile.childImageSharp.fluid.presentationHeight +
-              80
-            }px`
-          : "auto"}; */
-        /* @media screen and (max-width: ${SITE_OPTIONS.mobileBreakpoint}) {
-          height: auto;
-        } */
       `}
     >
       {slides.map((slide, i) => {
