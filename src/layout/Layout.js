@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { css, jsx } from "@emotion/react";
 import Header from "./Header";
 import Main from "./Main";
@@ -11,6 +11,7 @@ import { SITE_OPTIONS } from "../utils/contants";
 
 const Layout = ({ children, location }) => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  useEffect(() => setIsMobileNavOpen(false), [location]);
   return (
     <div
       css={css`
