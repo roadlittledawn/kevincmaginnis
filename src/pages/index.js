@@ -11,10 +11,25 @@ const HomePage = ({ data }) => {
   } = data;
 
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [filteredSlides, setFilteredSlides] = useState(slides);
+
   const showNextImage = () =>
-    setCurrentSlide((state) => (state + 1) % slides.length);
+    setCurrentSlide((state) => (state + 1) % filteredSlides.length);
   const showPreviousSlide = () =>
-    setCurrentSlide((state) => (state - 1) % slides.length);
+    setCurrentSlide((state) => (state - 1) % filteredSlides.length);
+
+  const filterSlidesByArtform = (selectedArtform) => {
+    if (selectedArtform === "all") {
+      setFilteredSlides(slides);
+      setCurrentSlide(0);
+    } else {
+      const newfilteredSlides = slides.filter(
+        (slide) => slide.artForm === selectedArtform
+      );
+      setFilteredSlides(newfilteredSlides);
+      setCurrentSlide(0);
+    }
+  };
 
   return (
     <>
@@ -24,6 +39,23 @@ const HomePage = ({ data }) => {
           max-width: 500px;
         `}
       >
+        <div
+          css={css`
+            display: flex;
+            justify-content: center;
+          `}
+        >
+          <button onClick={() => filterSlidesByArtform("all")}>All</button>
+          <button onClick={() => filterSlidesByArtform("sculpture")}>
+            Sculptures
+          </button>
+          <button onClick={() => filterSlidesByArtform("installation")}>
+            Installation
+          </button>
+          <button onClick={() => filterSlidesByArtform("painting")}>
+            Paintings
+          </button>
+        </div>
         <div
           css={css`
             display: flex;
@@ -48,12 +80,14 @@ const HomePage = ({ data }) => {
           <div
             css={css`
               margin-left: ${currentSlide === 0 ? "auto" : 0};
-              margin-right: ${currentSlide === slides.length - 1 ? "auto" : 0};
+              margin-right: ${currentSlide === filteredSlides.length - 1
+                ? "auto"
+                : 0};
             `}
           >
-            {currentSlide + 1} of {slides.length}
+            {currentSlide + 1} of {filteredSlides.length}
           </div>
-          {currentSlide !== slides.length - 1 && (
+          {currentSlide !== filteredSlides.length - 1 && (
             <button
               onClick={showNextImage}
               css={css`
@@ -67,7 +101,7 @@ const HomePage = ({ data }) => {
             </button>
           )}
         </div>
-        <SlideShow slides={slides} currentSlideIndex={currentSlide} />
+        <SlideShow slides={filteredSlides} currentSlideIndex={currentSlide} />
       </div>
     </>
   );
