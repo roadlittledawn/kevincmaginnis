@@ -11,24 +11,25 @@ const SlideShow = ({
   autoPlay = false,
   autoPlayInterval = 3000,
 }) => {
-  const [index, setIndex] = useState(0);
+  // const [index, setIndex] = useState(0);
 
-  useEffect(() => {
-    setIndex(currentSlideIndex);
-  }, [currentSlideIndex]);
+  // useEffect(() => {
+  //   setIndex(currentSlideIndex);
+  // }, [currentSlideIndex]);
 
-  useEffect(() => {
-    if (autoPlay) {
-      const timer = setTimeout(() => {
-        setIndex((index + 1) % slides.length);
-      }, autoPlayInterval);
+  // useEffect(() => {
+  //   if (autoPlay) {
+  //     const timer = setTimeout(() => {
+  //       setIndex((index + 1) % slides.length);
+  //     }, autoPlayInterval);
 
-      return () => clearTimeout(timer);
-    }
-  }, [autoPlay, autoPlayInterval, index, slides.length]);
+  //     return () => clearTimeout(timer);
+  //   }
+  // }, [autoPlay, autoPlayInterval, index, slides.length]);
 
   const nextImage = () => {
-    setIndex((index + 1) % slides.length);
+    // setIndex((index + 1) % slides.length);
+    currentSlideIndex + (1 % slides.length);
   };
 
   return (
@@ -40,7 +41,7 @@ const SlideShow = ({
       `}
     >
       {slides.map((slide, i) => {
-        const isShown = i === index;
+        const isShown = i === currentSlideIndex;
         return (
           <div
             key={`slide-${i}`}
