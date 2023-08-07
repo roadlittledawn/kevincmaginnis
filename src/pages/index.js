@@ -4,7 +4,6 @@ import { graphql } from "gatsby";
 import { css, jsx } from "@emotion/react";
 import FeatherIcon from "../components/FeatherIcon";
 import SlideShow from "../components/SlideShow";
-import { navigate } from "@reach/router";
 
 const HomePage = ({ data }) => {
   const {
