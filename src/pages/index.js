@@ -21,7 +21,7 @@ const HomePage = ({ data }) => {
     } else {
       filterSlidesByArtform("all");
     }
-  });
+  }, []);
 
   const showNextImage = () =>
     setCurrentSlide((state) => (state + 1) % filteredSlides.length);
