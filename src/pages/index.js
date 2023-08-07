@@ -22,7 +22,7 @@ const HomePage = ({ data }) => {
     } else {
       filterSlidesByArtform("all");
     }
-  }, [location.search]);
+  });
 
   const showNextImage = () =>
     setCurrentSlide((state) => (state + 1) % filteredSlides.length);
