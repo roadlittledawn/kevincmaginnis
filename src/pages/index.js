@@ -1,9 +1,10 @@
 /** @jsx jsx */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
 import { css, jsx } from "@emotion/react";
 import FeatherIcon from "../components/FeatherIcon";
 import SlideShow from "../components/SlideShow";
+import { navigate } from "@reach/router";
 
 const HomePage = ({ data }) => {
   const {
@@ -13,8 +14,19 @@ const HomePage = ({ data }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [filteredSlides, setFilteredSlides] = useState(slides);
 
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    if (queryParams.get("artForm")) {
+      const artFormParam = queryParams.get("artForm").replace("/", "");
+      filterSlidesByArtform(artFormParam);
+    } else {
+      filterSlidesByArtform("all");
+    }
+  }, [location.search]);
+
   const showNextImage = () =>
     setCurrentSlide((state) => (state + 1) % filteredSlides.length);
+
   const showPreviousSlide = () =>
     setCurrentSlide((state) => (state - 1) % filteredSlides.length);
 
@@ -39,23 +51,6 @@ const HomePage = ({ data }) => {
           max-width: 500px;
         `}
       >
-        <div
-          css={css`
-            display: flex;
-            justify-content: center;
-          `}
-        >
-          <button onClick={() => filterSlidesByArtform("all")}>All</button>
-          <button onClick={() => filterSlidesByArtform("sculpture")}>
-            Sculptures
-          </button>
-          <button onClick={() => filterSlidesByArtform("installation")}>
-            Installation
-          </button>
-          <button onClick={() => filterSlidesByArtform("painting")}>
-            Paintings
-          </button>
-        </div>
         <div
           css={css`
             display: flex;

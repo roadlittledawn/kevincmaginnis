@@ -10,10 +10,16 @@ const NavMenu = ({ location }) => {
         list-style-type: none;
       `}
     >
-      <NavItem to="/" text="Artwork" location={location} />
+      <NavItem
+        to="/?artForm=installation/"
+        text="Installation"
+        location={location}
+      />
+      <NavItem to="/?artForm=sculpture/" text="Sculpture" location={location} />
+      <NavItem to="/?artForm=painting/" text="Painting" location={location} />
+      <NavItem to="/cv/" text="CV" location={location} />
       <NavItem to="/bio/" text="Bio" location={location} />
       <NavItem to="/contact/" text="Contact" location={location} />
-      <NavItem to="/cv/" text="CV" location={location} />
     </nav>
   );
 };
