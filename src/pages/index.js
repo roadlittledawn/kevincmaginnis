@@ -17,30 +17,22 @@ const HomePage = ({ data }) => {
     const queryParams = new URLSearchParams(location.search);
     if (queryParams.get("artForm")) {
       const artFormParam = queryParams.get("artForm").replace("/", "");
-      filterSlidesByArtform(artFormParam);
+      const newfilteredSlides = slides.filter(
+        (slide) => slide.artForm === artFormParam
+      );
+      setFilteredSlides(newfilteredSlides);
+      setCurrentSlide(0);
     } else {
-      filterSlidesByArtform("all");
+      setFilteredSlides(slides);
+      setCurrentSlide(0);
     }
-  }, []);
+  }, [setFilteredSlides, setCurrentSlide, slides]);
 
   const showNextImage = () =>
     setCurrentSlide((state) => (state + 1) % filteredSlides.length);
 
   const showPreviousSlide = () =>
     setCurrentSlide((state) => (state - 1) % filteredSlides.length);
-
-  const filterSlidesByArtform = (selectedArtform) => {
-    if (selectedArtform === "all") {
-      setFilteredSlides(slides);
-      setCurrentSlide(0);
-    } else {
-      const newfilteredSlides = slides.filter(
-        (slide) => slide.artForm === selectedArtform
-      );
-      setFilteredSlides(newfilteredSlides);
-      setCurrentSlide(0);
-    }
-  };
 
   return (
     <>
