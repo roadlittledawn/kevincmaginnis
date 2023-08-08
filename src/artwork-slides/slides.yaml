@@ -1,3 +1,11 @@
+- title: Suburban video
+  year: 2023
+  artForm: installation
+  slideMedia:
+    type: video
+    videoPlatform: aws
+    videoId: suburban.mov
+  slideCaption: '23-6-F, acrylic on linen, 54" x 48" x 1.5" (137.16 x 121.92 x 3.81 cm)'
 - title: 23-6-F
   year: 2023
   artForm: painting

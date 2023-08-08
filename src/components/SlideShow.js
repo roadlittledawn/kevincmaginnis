@@ -27,6 +27,8 @@ const SlideShow = ({
   //   }
   // }, [autoPlay, autoPlayInterval, index, slides.length]);
 
+  useEffect(() => {});
+
   const nextImage = () => {
     // setIndex((index + 1) % slides.length);
     currentSlideIndex + (1 % slides.length);
@@ -82,6 +84,7 @@ const SlideShow = ({
                 }}
                 type={slide.slideMedia.videoPlatform || null}
                 id={slide.slideMedia.videoId}
+                pause={!isShown}
               />
             )}
             <div
