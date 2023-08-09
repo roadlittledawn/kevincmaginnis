@@ -12,7 +12,7 @@ function checkFilesExist(slides) {
   let missingFiles = false;
 
   for (const slide of slides) {
-    if (slide.slideMedia) {
+    if (slide.slideMedia && slide.type === "image") {
       const fileName = slide.slideMedia.fileName;
       const filePath = path.join(IMAGES_DIR, fileName);
 
