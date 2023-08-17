@@ -12,9 +12,12 @@ function checkFilesExist(slides) {
   let missingFiles = false;
 
   for (const slide of slides) {
-    if (slide.slideMedia && slide.type === "image") {
+    if (slide.slideMedia && slide.slideMedia.type === "image") {
       const fileName = slide.slideMedia.fileName;
       const filePath = path.join(IMAGES_DIR, fileName);
+      if (fileName.includes("23-6-F-new")) {
+        console.log(filePath);
+      }
 
       if (!fs.existsSync(filePath)) {
         console.error(
