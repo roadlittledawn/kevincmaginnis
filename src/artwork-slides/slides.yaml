@@ -45,7 +45,8 @@
   artForm: installation
   slideMedia:
     type: video
-    filename: spun-video-tour.mp4
+    videoPlatform: aws
+    videoId: spun-video-tour.mp4
   slideCaption: 'Spun, 2016, MDF plywood, contact paper, vinyl, LED lights, foamcore board, lead, acrylic, 96" x 240" x 456" (243.8 x 609.6 x 1158.2)'
 - title: Footpath
   year: 2018
@@ -108,7 +109,8 @@
   artForm: installation
   slideMedia:
     type: video
-    fileName: suburban.mov
+    videoPlatform: aws
+    videoId: suburban.mov
   slideCaption: 'Untitled (Suburban Installation), 2015, LED lights, foamboard, sandpaper, cork, acrylic, composite gold leaf, wood, cinder blocks, concrete, 132" x 128" x 144" (335.28 x 325 x 365.76 cm)'
 - title: Black
   year: 2019
@@ -215,20 +217,6 @@
     type: image
     fileName: 23-10-H-new.jpg
   slideCaption: '23-10-H, 2023, acrylic on linen, 40" x 40" x 1.5" (101.6 x 101.6 x 3.81 cm)'
-# - title: 23-6-G
-#   year: 2023
-#   artForm: painting
-#   slideMedia:
-#     type: image
-#     fileName: 23-6-G.jpeg
-#   slideCaption: '23-6-G, 2023, acrylic on linen, 24" x 28" x 1.5" (60.96 x 71.12 x 3.81 cm)'
-# - title: 22-5-B
-#   year: 2022
-#   artForm: painting
-#   slideMedia:
-#     type: image
-#     fileName: 22-5-B-new.jpg
-#   slideCaption: '22-5-B, 2023, acrylic on linen, 30" x 20" x 1.5" (76.2 x 50.8 x 3.81 cm)'
 - title: 22-5-A
   year: 2022
   artForm: painting
@@ -299,13 +287,6 @@
     type: image
     fileName: black-2-south-lawndale.jpeg
   slideCaption: 'Black #2 (South Lawndale), 2020, acrylic, oil tar sands on linen, 36" x 18" x 1.5" (91.5 x 45.7 x 3.8 cm)'
-# - title: Black No. 2 (South Lawndale) 3/4 view
-#   year: 2020
-#   artForm: painting
-#   slideMedia:
-#     type: image
-#     fileName: black-2-lawndale-painting.jpeg
-#   slideCaption: 'Black #2 (South Lawndale), 2020, acrylic, oil tar sands on linen, 36" x 18" x 1.5" (91.5 x 45.7 x 3.8 cm)'
 - title: Black No. 2 (Pilsen)
   year: 2020
   artForm: painting
@@ -348,39 +329,3 @@
     type: image
     fileName: eisenhower-slide-768x768.jpg
   slideCaption: 'Eisenhower, 1998, sumi-e ink on rice paper, 18" x 24" (45.72 x 60.96 cm)'
-# - title: Fence
-#   year: 2018
-#   artForm: sculpture
-#   slideMedia:
-#     type: image
-#     fileName: fence-detail-768x512.jpg
-#   slideCaption: "Fence, 2018 (detail)"
-# - title: Fence
-#   year: 2018
-#   artForm: sculpture
-#   slideMedia:
-#     type: image
-#     fileName: fence-bottom-detail-768x576.jpg
-#   slideCaption: "Fence, 2018 (detail, bottom)"
-# - title: Spun
-#   year: 2016
-#   artForm: installation
-#   slideMedia:
-#     type: image
-#     fileName: spun-north-wall-view-slide-768x513.jpg
-#   slideCaption: "Spun, 2016"
-# - title: Gold Fish
-#   year: 1990
-#   artForm: installation
-#   slideMedia:
-#     type: image
-#     fileName: gold-fish-overview-slide-768x768.jpg
-#   slideCaption: 'Gold Fish, 1990, cibachrome print from X-ray film, 20.5" x 171" (52.07 x 434.34 cm)'
-# - title: Gold Fish
-#   year: 1990
-#   artForm: installation
-#   slideMedia:
-#     type: image
-#     fileName: gold-fish-slide-768x768.jpg
-#   slideCaption: "Gold Fish (detail), 1990, cibachrome print from X-ray film"
-
