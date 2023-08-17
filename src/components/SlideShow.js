@@ -26,8 +26,6 @@ const SlideShow = ({
   //   }
   // }, [autoPlay, autoPlayInterval, index, slides.length]);
 
-  useEffect(() => {});
-
   const nextImage = () => {
     currentSlideIndex + (1 % slides.length);
   };
