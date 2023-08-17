@@ -40,13 +40,13 @@
     type: image
     fileName: spun-southwest-wall-view-slide-768x513.jpg
   slideCaption: "Spun, 2016"
-- title: Spun Video
-  year: 2016
-  artForm: installation
-  slideMedia:
-    type: video
-    filename: VIDEO
-  slideCaption: 'Spun, 2016, MDF plywood, contact paper, vinyl, LED lights, foamcore board, lead, acrylic, 96" x 240" x 456" (243.8 x 609.6 x 1158.2)'
+# - title: Spun Video
+#   year: 2016
+#   artForm: installation
+#   slideMedia:
+#     type: video
+#     filename: VIDEO
+#   slideCaption: 'Spun, 2016, MDF plywood, contact paper, vinyl, LED lights, foamcore board, lead, acrylic, 96" x 240" x 456" (243.8 x 609.6 x 1158.2)'
 - title: Footpath
   year: 2018
   artForm: installation
@@ -103,13 +103,13 @@
     type: image
     fileName: outsideviewatdusk-slide-768x768.jpg
   slideCaption: "Untitled (Suburban Installation), 2015"
-- title: Untitled (Suburban Installation)
-  year: 2015
-  artForm: installation
-  slideMedia:
-    type: video
-    fileName: VIDEO
-  slideCaption: 'Untitled (Suburban Installation), 2015, LED lights, foamboard, sandpaper, cork, acrylic, composite gold leaf, wood, cinder blocks, concrete, 132" x 128" x 144" (335.28 x 325 x 365.76 cm)'
+# - title: Untitled (Suburban Installation)
+#   year: 2015
+#   artForm: installation
+#   slideMedia:
+#     type: video
+#     fileName: VIDEO
+#   slideCaption: 'Untitled (Suburban Installation), 2015, LED lights, foamboard, sandpaper, cork, acrylic, composite gold leaf, wood, cinder blocks, concrete, 132" x 128" x 144" (335.28 x 325 x 365.76 cm)'
 - title: Black
   year: 2019
   artForm: installation
@@ -206,7 +206,7 @@
   artForm: painting
   slideMedia:
     type: image
-    fileName: 23-1-E-new.jpg
+    fileName: 23-1-E-new.jpeg
   slideCaption: '23-1-E, 2023, acrylic on linen, 30" x 36" x 1.5" (76.2 x 91.44 x 3.81 cm)'
 - title: 23-10-H
   year: 2023
@@ -222,13 +222,20 @@
 #     type: image
 #     fileName: 23-6-G.jpeg
 #   slideCaption: '23-6-G, 2023, acrylic on linen, 24" x 28" x 1.5" (60.96 x 71.12 x 3.81 cm)'
-- title: 22-5-B
+# - title: 22-5-B
+#   year: 2022
+#   artForm: painting
+#   slideMedia:
+#     type: image
+#     fileName: 22-5-B-new.jpg
+#   slideCaption: '22-5-B, 2023, acrylic on linen, 30" x 20" x 1.5" (76.2 x 50.8 x 3.81 cm)'
+- title: 22-5-A
   year: 2022
   artForm: painting
   slideMedia:
     type: image
-    fileName: 22-5-B-new.jpeg
-  slideCaption: '22-5-B, 2023, acrylic on linen, 30" x 20" x 1.5" (76.2 x 50.8 x 3.81 cm)'
+    fileName: 22-5-A-new.jpeg
+  slideCaption: '22-5-A, 2022, acrylic on linen, 30" x 20" x 1.5" (76.2 x 50.8 x 3.81 cm)'
 - title: Yellow Line on Purple Canvas
   year: 2022
   artForm: painting
@@ -362,7 +369,6 @@
 #     type: image
 #     fileName: spun-north-wall-view-slide-768x513.jpg
 #   slideCaption: "Spun, 2016"
-
 # - title: Gold Fish
 #   year: 1990
 #   artForm: installation
