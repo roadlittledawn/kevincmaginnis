@@ -38,7 +38,9 @@ const MobileNavMenu = () => {
           }
         `}
       >
-        <Link to="/">Artwork</Link>
+        <Link to="/?artForm=installation">Installation</Link>
+        <Link to="/?artForm=sculpture">Sculpture</Link>
+        <Link to="/?artForm=painting">Painting</Link>
         <Link to="/bio">Bio</Link>
         <Link to="/contact">Contact</Link>
         <Link to="/cv">CV</Link>

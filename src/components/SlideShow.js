@@ -1,9 +1,8 @@
 /** @jsx jsx */
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { css, jsx } from "@emotion/react";
 import PropTypes from "prop-types";
 import Video from "./Video";
-import { SITE_OPTIONS } from "../utils/contants";
 
 const SlideShow = ({
   slides,
@@ -11,24 +10,24 @@ const SlideShow = ({
   autoPlay = false,
   autoPlayInterval = 3000,
 }) => {
-  const [index, setIndex] = useState(0);
+  // const [index, setIndex] = useState(0);
 
-  useEffect(() => {
-    setIndex(currentSlideIndex);
-  }, [currentSlideIndex]);
+  // useEffect(() => {
+  //   setIndex(currentSlideIndex);
+  // }, [currentSlideIndex]);
 
-  useEffect(() => {
-    if (autoPlay) {
-      const timer = setTimeout(() => {
-        setIndex((index + 1) % slides.length);
-      }, autoPlayInterval);
+  // useEffect(() => {
+  //   if (autoPlay) {
+  //     const timer = setTimeout(() => {
+  //       setIndex((index + 1) % slides.length);
+  //     }, autoPlayInterval);
 
-      return () => clearTimeout(timer);
-    }
-  }, [autoPlay, autoPlayInterval, index, slides.length]);
+  //     return () => clearTimeout(timer);
+  //   }
+  // }, [autoPlay, autoPlayInterval, index, slides.length]);
 
   const nextImage = () => {
-    setIndex((index + 1) % slides.length);
+    currentSlideIndex + (1 % slides.length);
   };
 
   return (
@@ -40,7 +39,7 @@ const SlideShow = ({
       `}
     >
       {slides.map((slide, i) => {
-        const isShown = i === index;
+        const isShown = i === currentSlideIndex;
         return (
           <div
             key={`slide-${i}`}
@@ -50,7 +49,7 @@ const SlideShow = ({
               transition: opacity 1s ease-in-out 0.1s;
             `}
           >
-            {slide.slideMedia.type === "image" && (
+            {slide.slideMedia.type === "image" && slide.imageFile && (
               <div
                 css={css`
                   position: relative;
@@ -67,7 +66,7 @@ const SlideShow = ({
                   `}
                   key={i}
                   src={slide.imageFile.childImageSharp.fluid.src}
-                  alt={"slide.slideCaption"}
+                  alt={slide.slideCaption}
                   onLoad={i === 0 ? nextImage : undefined}
                 />
               </div>
@@ -81,6 +80,7 @@ const SlideShow = ({
                 }}
                 type={slide.slideMedia.videoPlatform || null}
                 id={slide.slideMedia.videoId}
+                pause={!isShown}
               />
             )}
             <div

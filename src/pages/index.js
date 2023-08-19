@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
 import { css, jsx } from "@emotion/react";
 import FeatherIcon from "../components/FeatherIcon";
@@ -11,10 +11,28 @@ const HomePage = ({ data }) => {
   } = data;
 
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [filteredSlides, setFilteredSlides] = useState(slides);
+
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    if (queryParams.get("artForm")) {
+      const artFormParam = queryParams.get("artForm").replace("/", "");
+      const newfilteredSlides = slides.filter(
+        (slide) => slide.artForm === artFormParam
+      );
+      setFilteredSlides(newfilteredSlides);
+      setCurrentSlide(0);
+    } else {
+      setFilteredSlides(slides);
+      setCurrentSlide(0);
+    }
+  }, [setFilteredSlides, setCurrentSlide, slides]);
+
   const showNextImage = () =>
-    setCurrentSlide((state) => (state + 1) % slides.length);
+    setCurrentSlide((state) => (state + 1) % filteredSlides.length);
+
   const showPreviousSlide = () =>
-    setCurrentSlide((state) => (state - 1) % slides.length);
+    setCurrentSlide((state) => (state - 1) % filteredSlides.length);
 
   return (
     <>
@@ -48,12 +66,14 @@ const HomePage = ({ data }) => {
           <div
             css={css`
               margin-left: ${currentSlide === 0 ? "auto" : 0};
-              margin-right: ${currentSlide === slides.length - 1 ? "auto" : 0};
+              margin-right: ${currentSlide === filteredSlides.length - 1
+                ? "auto"
+                : 0};
             `}
           >
-            {currentSlide + 1} of {slides.length}
+            {currentSlide + 1} of {filteredSlides.length}
           </div>
-          {currentSlide !== slides.length - 1 && (
+          {currentSlide !== filteredSlides.length - 1 && (
             <button
               onClick={showNextImage}
               css={css`
@@ -67,7 +87,7 @@ const HomePage = ({ data }) => {
             </button>
           )}
         </div>
-        <SlideShow slides={slides} currentSlideIndex={currentSlide} />
+        <SlideShow slides={filteredSlides} currentSlideIndex={currentSlide} />
       </div>
     </>
   );

@@ -15,10 +15,12 @@
     "clean": "gatsby clean",
     "lint": "eslint src/",
     "lint:fix": "yarn lint --fix",
+    "check-slide-images": "node scripts/check-slide-images.js",
     "remove-unused-images": "node scripts/remove-unused-images"
   },
   "dependencies": {
     "@emotion/react": "^11.10.4",
+    "@reach/router": "^1.3.4",
     "@react-spring/web": "^9.7.0",
     "feather-icons": "^4.29.0",
     "gatsby": "^4.25.2",
@@ -42,12 +44,14 @@
     "react-slideshow-image": "^4.2.0"
   },
   "devDependencies": {
+    "chalk": "^4.1.2",
     "eslint": "^7.7.0",
     "eslint-plugin-graphql": "^4.0.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.1.0",
     "js-yaml": "^4.1.0",
+    "log-symbols": "4.1.0",
     "slugify": "^1.6.5"
   }
 }
