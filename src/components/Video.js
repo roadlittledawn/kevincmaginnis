@@ -44,7 +44,7 @@ const Video = ({ id, type = "aws", title, className, width, pause, style }) => {
               top: 0;
             `}
           >
-            <source src={videoPlatforms[type](id)} type="video/quicktime" />
+            <source src={videoPlatforms[type](id)} type="video/mp4" />
             Download the
             <a href={videoPlatforms[type](id)}>MOV</a>
             video.

@@ -110,7 +110,7 @@
   slideMedia:
     type: video
     videoPlatform: aws
-    videoId: suburban.mov
+    videoId: suburban.mp4
   slideCaption: 'Untitled (Suburban Installation), 2015, LED lights, foamboard, sandpaper, cork, acrylic, composite gold leaf, wood, cinder blocks, concrete, 132" x 128" x 144" (335.28 x 325 x 365.76 cm)'
 - title: Black
   year: 2019
