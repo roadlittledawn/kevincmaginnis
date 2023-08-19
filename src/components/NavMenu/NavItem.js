@@ -6,7 +6,7 @@ import { Link } from "gatsby";
 const NavItem = ({ to, text, location }) => {
   const isCurrent = () => {
     const queryParams = new URLSearchParams(location.search);
-    console.log({ to });
+
     if (location.pathname === "/" && queryParams.get("artForm")) {
       return to === `/${location.search}`;
     } else {
