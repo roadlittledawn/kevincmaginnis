@@ -2,37 +2,69 @@
 import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
 import { css, jsx } from "@emotion/react";
+import { navigate } from "@reach/router";
 import FeatherIcon from "../components/FeatherIcon";
 import SlideShow from "../components/SlideShow";
+
+const findIndexOfArtForm = (array, targetArtForm) => {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].artForm === targetArtForm.replace("/", "")) {
+      return i; // Return the index if a matching artForm is found
+    }
+  }
+  return -1; // Return -1 if the artForm is not found in any object
+};
 
 const HomePage = ({ data }) => {
   const {
     allSlidesYaml: { nodes: slides },
   } = data;
 
+  const [allSlides, setAllSlides] = useState(slides);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [filteredSlides, setFilteredSlides] = useState(slides);
 
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
-    if (queryParams.get("artForm")) {
-      const artFormParam = queryParams.get("artForm").replace("/", "");
-      const newfilteredSlides = slides.filter(
-        (slide) => slide.artForm === artFormParam
-      );
-      setFilteredSlides(newfilteredSlides);
+    if (!queryParams.get("artForm") && !queryParams.get("slide")) {
+      queryParams.set("slide", 0);
+      queryParams.set("artForm", allSlides[0].artForm);
       setCurrentSlide(0);
-    } else {
-      setFilteredSlides(slides);
-      setCurrentSlide(0);
+      navigate(`?${queryParams.toString()}`);
     }
-  }, [setFilteredSlides, setCurrentSlide, slides]);
+    if (queryParams.get("slide")) {
+      const slideIndex = parseInt(queryParams.get("slide"));
+      queryParams.set("artForm", allSlides[slideIndex].artForm);
+      setCurrentSlide(slideIndex);
+      navigate(`?${queryParams.toString()}`);
+    }
+    if (!queryParams.get("slide") && queryParams.get("artForm")) {
+      const slideIndex = findIndexOfArtForm(
+        allSlides,
+        queryParams.get("artForm")
+      );
+      queryParams.set("slide", slideIndex);
+      setCurrentSlide(slideIndex);
+      navigate(`?${queryParams.toString()}`);
+    }
+  }, []);
 
-  const showNextImage = () =>
-    setCurrentSlide((state) => (state + 1) % filteredSlides.length);
+  const showNextImage = () => {
+    const queryParams = new URLSearchParams(location.search);
+    const nextSlideIndex = (currentSlide + 1) % allSlides.length;
+    queryParams.set("slide", nextSlideIndex);
+    queryParams.set("artForm", allSlides[nextSlideIndex].artForm);
+    setCurrentSlide(nextSlideIndex);
+    navigate(`?${queryParams.toString()}`);
+  };
 
-  const showPreviousSlide = () =>
-    setCurrentSlide((state) => (state - 1) % filteredSlides.length);
+  const showPreviousSlide = () => {
+    const queryParams = new URLSearchParams(location.search);
+    const previousSlideIndex = (currentSlide - 1) % allSlides.length;
+    queryParams.set("slide", previousSlideIndex);
+    queryParams.set("artForm", allSlides[previousSlideIndex].artForm);
+    setCurrentSlide(previousSlideIndex);
+    navigate(`?${queryParams.toString()}`);
+  };
 
   return (
     <>
@@ -66,14 +98,14 @@ const HomePage = ({ data }) => {
           <div
             css={css`
               margin-left: ${currentSlide === 0 ? "auto" : 0};
-              margin-right: ${currentSlide === filteredSlides.length - 1
+              margin-right: ${currentSlide === allSlides.length - 1
                 ? "auto"
                 : 0};
             `}
           >
-            {currentSlide + 1} of {filteredSlides.length}
+            {currentSlide + 1} of {allSlides.length}
           </div>
-          {currentSlide !== filteredSlides.length - 1 && (
+          {currentSlide !== allSlides.length - 1 && (
             <button
               onClick={showNextImage}
               css={css`
@@ -87,7 +119,9 @@ const HomePage = ({ data }) => {
             </button>
           )}
         </div>
-        <SlideShow slides={filteredSlides} currentSlideIndex={currentSlide} />
+        {currentSlide >= 0 && (
+          <SlideShow slides={allSlides} currentSlideIndex={currentSlide} />
+        )}
       </div>
     </>
   );
