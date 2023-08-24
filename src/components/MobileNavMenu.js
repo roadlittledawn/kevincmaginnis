@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import React from "react";
-import { Link } from "gatsby";
 import { css, jsx } from "@emotion/react";
 
 const MobileNavMenu = () => {
@@ -38,12 +37,12 @@ const MobileNavMenu = () => {
           }
         `}
       >
-        <Link to="/?artForm=installation">Installation</Link>
-        <Link to="/?artForm=sculpture">Sculpture</Link>
-        <Link to="/?artForm=painting">Painting</Link>
-        <Link to="/bio">Bio</Link>
-        <Link to="/contact">Contact</Link>
-        <Link to="/cv">CV</Link>
+        <a href="/?artForm=installation">Installation</a>
+        <a href="/?artForm=sculpture">Sculpture</a>
+        <a href="/?artForm=painting">Painting</a>
+        <a href="/bio">Bio</a>
+        <a href="/contact">Contact</a>
+        <a href="/cv">CV</a>
       </nav>
     </>
   );

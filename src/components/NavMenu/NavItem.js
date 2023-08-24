@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import React, { useEffect, useState } from "react";
 import { css, jsx } from "@emotion/react";
-import { Link } from "gatsby";
 
 const NavItem = ({ to, text, location }) => {
   const [isCurrent, setIsCurrent] = useState(false);
@@ -37,9 +36,9 @@ const NavItem = ({ to, text, location }) => {
         border-left: ${isCurrent ? "2px solid red" : "none"};
       `}
     >
-      <Link css={style} href={to}>
+      <a css={style} href={to}>
         {text}
-      </Link>
+      </a>
     </li>
   );
 };
