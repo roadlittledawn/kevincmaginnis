@@ -5,6 +5,7 @@ import { css, jsx } from "@emotion/react";
 import { navigate } from "@reach/router";
 import FeatherIcon from "../components/FeatherIcon";
 import SlideShow from "../components/SlideShow";
+import LoadingIcon from "../components/LoadingIcon";
 
 const findIndexOfArtForm = (array, targetArtForm) => {
   for (let i = 0; i < array.length; i++) {
@@ -21,7 +22,7 @@ const HomePage = ({ data }) => {
   } = data;
 
   const [allSlides, setAllSlides] = useState(slides);
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(null);
 
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
@@ -74,53 +75,67 @@ const HomePage = ({ data }) => {
           max-width: 500px;
         `}
       >
-        <div
-          css={css`
-            display: flex;
-            flex-direction: row;
-            flex-wrap: none;
-            justify-content: space-between;
-          `}
-        >
-          {currentSlide !== 0 && (
-            <button
-              onClick={showPreviousSlide}
-              css={css`
-                background: none;
-                border: none;
-                cursor: pointer;
-                margin-right: auto;
-              `}
-            >
-              <FeatherIcon name="chevron-left" size={48} color="#515151" />
-            </button>
-          )}
+        {currentSlide === null && (
           <div
             css={css`
-              margin-left: ${currentSlide === 0 ? "auto" : 0};
-              margin-right: ${currentSlide === allSlides.length - 1
-                ? "auto"
-                : 0};
+              display: flex;
+              justify-content: center;
             `}
           >
-            {currentSlide + 1} of {allSlides.length}
+            <LoadingIcon />
           </div>
-          {currentSlide !== allSlides.length - 1 && (
-            <button
-              onClick={showNextImage}
+        )}
+        {currentSlide !== null && (
+          <>
+            <div
               css={css`
-                background: none;
-                border: none;
-                cursor: pointer;
-                margin-left: auto;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: none;
+                justify-content: space-between;
               `}
             >
-              <FeatherIcon name="chevron-right" size={48} color="#515151" />
-            </button>
-          )}
-        </div>
-        {currentSlide >= 0 && (
-          <SlideShow slides={allSlides} currentSlideIndex={currentSlide} />
+              {currentSlide > 0 && (
+                <button
+                  onClick={showPreviousSlide}
+                  css={css`
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    margin-right: auto;
+                  `}
+                >
+                  <FeatherIcon name="chevron-left" size={48} color="#515151" />
+                </button>
+              )}
+
+              <div
+                css={css`
+                  margin-left: ${currentSlide === 0 ? "auto" : 0};
+                  margin-right: ${currentSlide === allSlides.length - 1
+                    ? "auto"
+                    : 0};
+                `}
+              >
+                {currentSlide + 1} of {allSlides.length}
+              </div>
+              {currentSlide !== allSlides.length - 1 && (
+                <button
+                  onClick={showNextImage}
+                  css={css`
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    margin-left: auto;
+                  `}
+                >
+                  <FeatherIcon name="chevron-right" size={48} color="#515151" />
+                </button>
+              )}
+            </div>
+
+            <SlideShow slides={allSlides} currentSlideIndex={currentSlide} />
+          </>
         )}
       </div>
     </>
