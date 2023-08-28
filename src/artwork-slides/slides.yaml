@@ -147,6 +147,20 @@
     type: image
     fileName: gold-fish-slide-768x768.jpg
   slideCaption: "Gold Fish (detail), 1990, cibachrome print from X-ray film"
+- title: Stair Flight Double
+  year: 2014
+  artForm: installation
+  slideMedia:
+    type: image
+    fileName: stair-flight-double-768x735.jpg
+  slideCaption: 'Stair Flight Double, 2014, foamboard, acetate, acrylic, 192" x 49" x 50" (487.7 x 124.5 x 127 cm)'
+- title: Black No. 2
+  year: 2020
+  artForm: installation
+  slideMedia:
+    type: image
+    fileName: img_0164-1-768x512.jpeg
+  slideCaption: "Black #2 (installation overview), 2020, acrylic, oil tar sands, 14' x 17' x 8' (427 x 518 x 244 cm)"
 - title: No Title
   year: 1989
   artForm: sculpture
@@ -161,13 +175,6 @@
     type: image
     fileName: untitled.jpg
   slideCaption: 'Americium, 1990, stainless steel, lead, Americium, 4" x 4" (10.16 x 10.16 cm)'
-- title: Stair Flight Double
-  year: 2014
-  artForm: installation
-  slideMedia:
-    type: image
-    fileName: stair-flight-double-768x735.jpg
-  slideCaption: 'Stair Flight Double, 2014, foamboard, acetate, acrylic, 192" x 49" x 50" (487.7 x 124.5 x 127 cm)'
 - title: Close Tightly
   year: 2021
   artForm: sculpture
@@ -259,13 +266,6 @@
     type: image
     fileName: canvas-near-the-corner-of-my-studio.jpeg
   slideCaption: 'Canvas Near the Corner of My Studio, 2020, acrylic on linen, 24" x 24" x 1.375" (60.96 x60.96 x 3.49 cm)'
-- title: Black No. 2
-  year: 2020
-  artForm: installation
-  slideMedia:
-    type: image
-    fileName: img_0164-1-768x512.jpeg
-  slideCaption: "Black #2 (installation overview), 2020, acrylic, oil tar sands, 14' x 17' x 8' (427 x 518 x 244 cm)"
 - title: Black No. 2 (Garfield Manor)
   year: 2020
   artForm: painting
