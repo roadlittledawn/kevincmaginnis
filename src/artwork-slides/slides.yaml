@@ -5,13 +5,6 @@
     type: image
     fileName: shattered.jpg
   slideCaption: 'Shattered, 2024, papier mâché, acrylic, sand on canvas 36" x 60" x 1.5" (91.44 x 152.4 x 3.8 cm)'
-- title: Cracked
-  year: 2024
-  artForm: painting
-  slideMedia:
-    type: image
-    fileName: cracked.jpg
-  slideCaption: 'Cracked, 2024, papier mâché, acrylic, sand on linen, 20" x 38" x 1.5" (50.8 x 96.52 x 3.8 cm)'
 - title: Fractured
   year: 2024
   artForm: painting
@@ -19,6 +12,13 @@
     type: image
     fileName: fractured.jpg
   slideCaption: 'Fractured, 2024, papier mâché, acrylic, sand on linen, 28" x 24" (71.11 x 60.96 x 3.81 cm)'
+- title: Cracked
+  year: 2024
+  artForm: painting
+  slideMedia:
+    type: image
+    fileName: cracked.jpg
+  slideCaption: 'Cracked, 2024, papier mâché, acrylic, sand on linen, 20" x 38" x 1.5" (50.8 x 96.52 x 3.8 cm)'
 - title: Fragmented
   year: 2024
   artForm: painting
@@ -90,19 +90,19 @@
     fileName: blue-lines-on-purple-canvas-768x912.jpeg
   slideCaption: 'Blue Lines on Purple Canvas, 2022, acrylic on linen, 24" x 20" x 1.25" (60.96 x50.8 x 3.18 cm)'
 - title: Corner of My Studio
-  year: 2020
+  year: 2021
   artForm: painting
   slideMedia:
     type: image
     fileName: corner-of-my-studio.jpeg
-  slideCaption: 'Corner of My Studio, 2020, acrylic on linen, 20" x 20" x 1.375" (50.8 x50.8 x 3.49 cm)'
+  slideCaption: 'Corner of My Studio, 2021, acrylic on linen, 20" x 20" x 1.375" (50.8 x50.8 x 3.49 cm)'
 - title: Canvas Near the Corner of My Studio
-  year: 2020
+  year: 2021
   artForm: painting
   slideMedia:
     type: image
     fileName: canvas-near-the-corner-of-my-studio.jpeg
-  slideCaption: 'Canvas Near the Corner of My Studio, 2020, acrylic on linen, 24" x 24" x 1.375" (60.96 x60.96 x 3.49 cm)'
+  slideCaption: 'Canvas Near the Corner of My Studio, 2021, acrylic on linen, 24" x 24" x 1.375" (60.96 x60.96 x 3.49 cm)'
 - title: Black No. 2 (Garfield Manor)
   year: 2020
   artForm: painting

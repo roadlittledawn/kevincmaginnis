@@ -37,9 +37,9 @@ const MobileNavMenu = () => {
           }
         `}
       >
-        <a href="/?artForm=installation">Installation</a>
-        <a href="/?artForm=sculpture">Sculpture</a>
         <a href="/?artForm=painting">Painting</a>
+        <a href="/?artForm=sculpture">Sculpture</a>
+        <a href="/?artForm=installation">Installation</a>
         <a href="/bio">Bio</a>
         <a href="/contact">Contact</a>
         <a href="/cv">CV</a>
