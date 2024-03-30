@@ -21,7 +21,7 @@ const BioPage = () => {
       <p>
         In 1992 Maginnis began a long hiatus from his practice. Not until 2010,
         after liquidating his business, did he begin his practice again. A
-        series of shows soon followed. First, a group show at Hyde Park Arts
+        series of shows soon followed: first, a group show at Hyde Park Arts
         Center, followed by a one person show/installation at The Suburban
         Gallery. In 2016 Maginnis created his most ambitious independent
         exhibition yet, titled Spun, featuring 20 different artists “platformed”
@@ -29,8 +29,7 @@ const BioPage = () => {
       </p>
 
       <p>
-        Currently Maginnis continues his practice of platforming and stand-alone
-        installations at Mana Contemporary in Chicago.
+        For the last several years he has, in part, focused on what he perceives to be a catastrophic reckoning coming due because of what we have done to this planet. Currently he continues his practice of articulating this dread of the future at Mana Contemporary in Chicago.
       </p>
     </>
   );
