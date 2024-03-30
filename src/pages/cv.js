@@ -43,6 +43,7 @@ const CvPage = () => {
                 </ul>
             <h4>Group Exhibitions</h4>
                 <ul>
+                    <li>2024 "Doomscapes", ARC Gallery, Chicago</li>
                     <li>2023 "Private Spaces", Manifest Gallery, Cincinnati, Ohio</li>
                     <li>2020 “In Good Company”, Mana Contempory Chicago, Chicago, Illinois</li>
                     <li>2019 “One Shot”, Manifest Gallery, Cincinnati, Ohio</li>
